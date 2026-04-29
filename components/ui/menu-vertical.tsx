@@ -45,9 +45,9 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
                   <Image
                     src={logo}
                     alt="Hubiagency"
-                    width={120}
-                    height={40}
-                    className="w-auto h-10 object-contain"
+                    width={700}
+                    height={169}
+                    className="w-auto h-8 object-contain"
                     unoptimized
                   />
                 </Link>
