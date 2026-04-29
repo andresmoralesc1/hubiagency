@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DataGridHero from "@/components/ui/data-grid-hero";
 import { ShinyButton } from "@/components/ui/shiny-button";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -192,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
+      <section className="bg-black text-white pb-24 px-8 relative overflow-hidden">
         <div className="orb orb-cyan w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
 
         <div className="max-w-2xl mx-auto text-center relative z-10">
@@ -210,6 +211,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
