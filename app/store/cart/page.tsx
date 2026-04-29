@@ -43,9 +43,9 @@ export default function CartPage() {
     return (
       <div className="min-h-screen bg-black text-white">
         <Header />
-        <section className="pt-32 pb-16 px-8">
+        <section className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6">Tu Carrito</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">Tu Carrito</h1>
             <p className="text-zinc-400 mb-8">Tu carrito está vacío</p>
             <Link
               href="/store/products"
@@ -63,9 +63,9 @@ export default function CartPage() {
     <div className="min-h-screen bg-black text-white">
       <Header />
 
-      <section className="pt-32 pb-16 px-8">
+      <section className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Tu Carrito</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8">Tu Carrito</h1>
 
           <div className="space-y-4 mb-8">
             {cart.items.map((item, index) => (
@@ -75,9 +75,12 @@ export default function CartPage() {
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="font-semibold">Servicio</h3>
+                    <h3 className="font-semibold">{item.title || "Servicio"}</h3>
                     <p className="text-zinc-400 text-sm">Cantidad: {item.quantity}</p>
                   </div>
+                  <span className="text-cyan-400 font-medium">
+                    {formatPrice(item.unit_price?.amount || 0)}
+                  </span>
                 </div>
               </div>
             ))}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Header } from "@/components/header";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 export default function AboutPage() {
   return (
@@ -7,9 +8,9 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-8">
+      <section className="pt-24 md:pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
             Sobre hubIAgency
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
@@ -97,11 +98,22 @@ export default function AboutPage() {
               <div className="w-24 h-24 rounded-full bg-cyan-500/20 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-4xl">👤</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Tu Nombre</h3>
+              <h3 className="text-xl font-semibold mb-2">Andrés Morales</h3>
               <p className="text-cyan-400 mb-4">Founder & Lead Engineer</p>
               <p className="text-zinc-400 text-sm">
                 Automatización inteligente y soluciones AI a medida. Construyendo el futuro de las operaciones empresariales.
               </p>
+              <div className="flex justify-center gap-4 mt-4">
+                <a href="https://github.com/andresmoralesc1/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="GitHub">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .29a12 12 0 00-3.797 23.401c.6.11.82-.26.82-.577v-2.17c-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.332-1.756-1.332-1.756-1.09-.744.084-.729.084-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.306 3.495.999.106-.775.418-1.307.76-1.608-2.665-.301-5.466-1.332-5.466-5.933 0-1.31.469-2.381 1.236-3.222-.123-.303-.535-1.523.117-3.176 0 0 1.007-.322 3.301 1.23a11.502 11.502 0 016.002 0c2.292-1.552 3.297-1.23 3.297-1.23.654 1.653.242 2.873.119 3.176.77.841 1.235 1.912 1.235 3.222 0 4.61-2.805 5.629-5.476 5.925.429.369.813 1.096.813 2.211v3.285c0 .32.217.694.825.576A12 12 0 0012 .29"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/andresmoralesc1/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5v-14a5 5 0 00-5-5zm-11 19h-3v-9h3zm-1.5-10.268a1.752 1.752 0 110-3.505 1.752 1.752 0 010 3.505zm15.5 10.268h-3v-4.5c0-1.07-.02-2.450-1.492-2.450-1.495 0-1.725 1.166-1.725 2.372v4.578h-3v-9h2.88v1.23h.04a3.157 3.157 0 012.847-1.568c3.042 0 3.605 2.003 3.605 4.612v4.726z"/></svg>
+                </a>
+                <a href="https://andresmorales.com.co" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="Website">
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </a>
+              </div>
             </div>
             <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
               <div className="w-24 h-24 rounded-full bg-cyan-500/20 mx-auto mb-4 flex items-center justify-center">
@@ -110,7 +122,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-2">Alejandro Montes</h3>
               <p className="text-cyan-400 mb-4">AI Architect</p>
               <p className="text-zinc-400 text-sm">
-                Especializado enLangChain, RAG, y despliegue de agentes AI locales con Ollama.
+                Especializado en LangChain, RAG, y despliegue de agentes AI locales con Ollama.
               </p>
             </div>
           </div>
@@ -122,9 +134,9 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Trabajemos Juntos</h2>
           <p className="text-zinc-400 mb-8">¿Listo para transformar tu negocio? Contacta a nuestro equipo.</p>
-          <Link href="/contact" className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
+          <ShinyButton href="/contact">
             Contáctanos
-          </Link>
+          </ShinyButton>
         </div>
       </section>
     </div>

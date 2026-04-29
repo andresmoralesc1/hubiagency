@@ -19,7 +19,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    setError(""); // Clear error on submit
     setSuccess(false);
 
     try {
@@ -52,9 +52,9 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-8">
+      <section className="pt-24 md:pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
             Ponerse en Contacto
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
-                  placeholder="your@email.com"
+                  placeholder="tu@email.com"
                 />
               </div>
 
@@ -175,9 +175,9 @@ export default function ContactPage() {
             <div className="mt-8 pt-8 border-t border-zinc-800">
               <p className="text-center text-zinc-400 mb-4">O contáctanos directamente</p>
               <div className="flex justify-center gap-6 text-sm">
-                <a href="mailto:hello@hubiagency.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                <ShinyButton href="mailto:hello@hubiagency.com" variant="outline">
                   hello@hubiagency.com
-                </a>
+                </ShinyButton>
               </div>
             </div>
           </div>

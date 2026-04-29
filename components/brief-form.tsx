@@ -5,9 +5,19 @@ import Link from "next/link";
 import { ShinyButton } from "@/components/ui/shiny-button";
 
 const tools = [
-  "Google Sheets", "Excel", "CRM (HubSpot, Salesforce)", "Slack",
-  "WhatsApp", "Shopify", "WooCommerce", "Notion", "Trello",
-  "SAP", "Dynamics", "Zoho", "Mailchimp", "Stripe", "PayPal"
+  // Office & Productivity
+  "Google Sheets", "Excel", "Office 365", "Google Workspace",
+  "Notion", "Trello", "Asana", "Monday.com", "Jira", "ClickUp",
+  // CRM & Sales
+  "CRM (HubSpot, Salesforce)", "Zoho", "Pipeline", "Bitrix24",
+  // Communication
+  "Slack", "WhatsApp", "Telegram", "Discord", "Email",
+  // Social Media & Marketing
+  "Instagram", "Facebook", "Twitter/X", "LinkedIn", "TikTok",
+  // E-commerce
+  "Shopify", "WooCommerce", "Stripe", "PayPal", "MercadoPago",
+  // Other
+  "SAP", "Dynamics", "Mailchimp", "HubSpot Marketing"
 ];
 
 const painPoints = [
@@ -34,6 +44,7 @@ const urgency = [
 ];
 
 const budgets = [
+  { min: 100, max: 500, label: "$100 - $500", desc: "Automatización simple" },
   { min: 500, max: 2000, label: "$500 - $2,000", desc: "Automatización puntual" },
   { min: 2000, max: 5000, label: "$2,000 - $5,000", desc: "Proyecto completo" },
   { min: 5000, max: 15000, label: "$5,000 - $15,000", desc: "Solución integral" },
@@ -182,17 +193,29 @@ export function BriefForm() {
 
             {/* Step 2: Connection */}
             {step === 2 && (
-              <div>
-                <input
-                  type="text"
-                  value={formData.connection}
-                  onChange={(e) => setFormData(f => ({ ...f, connection: e.target.value }))}
-                  placeholder="Ej: Google Sheets → Notion, WhatsApp → CRM"
-                  className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
-                />
-                <p className="text-zinc-500 text-sm mt-3">
-                  Describe en pocas palabras qué conexión te gustaría automatizar.
-                </p>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm text-zinc-400 mb-2">
+                    ¿Qué herramientas quieres conectar?
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.connection}
+                    onChange={(e) => setFormData(f => ({ ...f, connection: e.target.value }))}
+                    placeholder="Ej: Google Sheets → Notion, WhatsApp → CRM"
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-zinc-400 mb-2">
+                    ¿No encuentras tu herramienta? Escribe el nombre aquí:
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Ej: Airtable, Pipedrive, Shopify..."
+                    className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
+                  />
+                </div>
               </div>
             )}
 
@@ -250,7 +273,7 @@ export function BriefForm() {
                       value={formData.name}
                       onChange={(e) => setFormData(f => ({ ...f, name: e.target.value }))}
                       className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none"
-                      placeholder="Tu nombre"
+                      placeholder="tu nombre"
                     />
                   </div>
                   <div>
@@ -313,6 +336,7 @@ export function BriefForm() {
                 disabled={
                   (step === 0 && formData.pain.length === 0) ||
                   (step === 1 && formData.tools.length === 0) ||
+                  (step === 2 && !formData.connection.trim()) ||
                   (step === 3 && !formData.goal) ||
                   (step === 4 && !formData.urgency)
                 }

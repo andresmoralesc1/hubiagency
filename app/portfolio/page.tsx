@@ -63,9 +63,9 @@ export default function PortfolioPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-8 relative z-10">
+      <section className="pt-24 md:pt-32 pb-16 px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 animate-fade-in-up">
             Nuestro Trabajo
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto animate-fade-in-up delay-200">
@@ -113,7 +113,7 @@ export default function PortfolioPage() {
       <section className="py-16 px-8 border-t border-zinc-800 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">¿Listo para Lograr Resultados Similares?</h2>
-          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Discutamos cómo podemos ayudar a transformar tu negocio.</p>
+          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">¿Discutamos cómo podemos ayudar a transformar tu negocio?</p>
           <ShinyButton href="/contact">
             Iniciar Tu Proyecto
           </ShinyButton>

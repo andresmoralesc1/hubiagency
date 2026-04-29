@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import DataGridHero from "@/components/ui/data-grid-hero";
 import { ShinyButton } from "@/components/ui/shiny-button";
@@ -20,38 +21,13 @@ export default function Home() {
         opacityMax={0.7}
         background="hsl(220, 20%, 5%)"
       >
-        <h1
-          style={{
-            fontFamily: "Arial Black, sans-serif",
-            fontSize: "clamp(3rem, 10vw, 8rem)",
-            fontWeight: 900,
-            letterSpacing: "0.05em",
-            textTransform: "uppercase",
-            color: "white",
-            margin: 0,
-            textShadow: "0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(0, 212, 255, 0.4)",
-          }}
-        >
+        <h1 className="text-6xl md:text-8xl font-black tracking-widest uppercase text-white drop-shadow-[0_0_40px_rgba(0,212,255,0.6)]">
           HUBIAGENCY
         </h1>
-        <p
-          style={{
-            fontSize: "1.1rem",
-            color: "rgba(255, 255, 255, 0.95)",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            marginTop: "1rem",
-            textShadow: "0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(0,212,255,0.3)",
-            border: "1px solid rgba(255,255,255,0.2)",
-            padding: "0.5rem 1rem",
-            borderRadius: "0.25rem",
-            background: "rgba(255,255,255,0.05)",
-            backdropFilter: "blur(10px)",
-          }}
-        >
+        <p className="text-base md:text-lg text-white/95 tracking-widest uppercase border border-white/20 px-4 py-2 bg-white/5 backdrop-blur-sm mt-4">
           Automatizar • Innovar • Elevar
         </p>
-        <div style={{ marginTop: "3rem", display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+        <div className="mt-12 flex gap-4 flex-wrap justify-center">
           <ShinyButton href="/store/products" variant="outline">
             Ver Servicios de IA
           </ShinyButton>
@@ -140,11 +116,16 @@ export default function Home() {
 
       {/* Technologies */}
       <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
-        <img
-          src="https://images.pexels.com/photos/17483870/pexels-photo-17483870.png?auto=compress&cs=tinysrgb&h=800&w=1920"
-          alt="AI Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
+        <div className="absolute inset-0 w-full h-96">
+          <Image
+            src="https://images.pexels.com/photos/17483870/pexels-photo-17483870.png?auto=compress&cs=tinysrgb&h=800&w=1920"
+            alt="Infraestructura tecnológica de IA con servidores y cables de red"
+            fill
+            className="object-cover opacity-20"
+            sizes="100vw"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
         <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
 
@@ -154,7 +135,7 @@ export default function Home() {
             {["n8n", "LangChain", "Ollama", "OpenAI", "RAG", "Vector DBs", "PostgreSQL", "Redis"].map((tech, i) => (
               <span
                 key={tech}
-                className="px-6 py-3 glass rounded-full hover:neon-border hover-scale transition-all cursor-default"
+                className="px-6 py-3 glass rounded-full hover:neon-border hover:scale-105 transition-all cursor-default"
                 style={{animationDelay: `${i * 100}ms`}}
               >
                 {tech}
@@ -171,7 +152,7 @@ export default function Home() {
             Nuestro Proceso
           </h2>
           <p className="text-center text-zinc-400 mb-16 animate-fade-in-up delay-100">
-            Desde el descubrimiento hasta el despliegue, aseguramos un viaje seamless
+            Desde el descubrimiento hasta el despliegue, aseguramos un viaje sin interrupciones
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 stagger-children">

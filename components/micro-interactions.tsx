@@ -8,9 +8,24 @@ export function MicroInteractions() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorVisible, setCursorVisible] = useState(false);
   const [trailPositions, setTrailPositions] = useState<Array<{ x: number; y: number }>>([]);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const trailRef = useRef<Array<{ x: number; y: number }>>([]);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
       setCursorVisible(true);
@@ -30,7 +45,9 @@ export function MicroInteractions() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [prefersReducedMotion]);
+
+  if (prefersReducedMotion) return null;
 
   return (
     <>

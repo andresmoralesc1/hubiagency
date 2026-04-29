@@ -21,6 +21,10 @@ interface Product {
 interface CartItem {
   variant_id: string;
   quantity: number;
+  title?: string;
+  unit_price?: {
+    amount: number;
+  };
 }
 
 interface Cart {
