@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
             setSelectedVariantId(data.variants[0].id);
           }
         } else {
-          setError("Product not found");
+          setError("Producto no encontrado");
         }
       } catch (err) {
         setError("Failed to load product");
@@ -71,7 +71,7 @@ export default function ProductDetailPage() {
       <div className="min-h-screen bg-black text-white">
         <Header />
         <div className="pt-32 text-center">
-          <div className="text-cyan-400 text-xl">Loading...</div>
+          <div className="text-cyan-400 text-xl">Cargando...</div>
         </div>
       </div>
     );
@@ -82,9 +82,9 @@ export default function ProductDetailPage() {
       <div className="min-h-screen bg-black text-white">
         <Header />
         <div className="pt-32 text-center">
-          <div className="text-red-400 text-xl">{error || "Product not found"}</div>
+          <div className="text-red-400 text-xl">{error || "Producto no encontrado"}</div>
           <Link href="/store/products" className="text-cyan-400 mt-4 inline-block">
-            ← Back to Services
+            ← Volver a Servicios
           </Link>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function ProductDetailPage() {
             href="/store/products"
             className="text-zinc-400 hover:text-white transition-colors mb-8 inline-block"
           >
-            ← Back to Services
+            ← Volver a Servicios
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-12 mt-8">
@@ -139,7 +139,7 @@ export default function ProductDetailPage() {
 
               {product.metadata?.delivery_time && (
                 <div className="mb-6 p-4 bg-zinc-900/50 rounded-lg border border-zinc-800">
-                  <span className="text-zinc-400">Delivery: </span>
+                  <span className="text-zinc-400">Envío: </span>
                   <span className="text-white">{product.metadata.delivery_time}</span>
                 </div>
               )}
@@ -147,7 +147,7 @@ export default function ProductDetailPage() {
               {/* Variant Selection */}
               {product.variants && product.variants.length > 1 && (
                 <div className="mb-6">
-                  <label className="block text-sm font-medium mb-2">Select Plan</label>
+                  <label className="block text-sm font-medium mb-2">Seleccionar Plan</label>
                   <div className="space-y-2">
                     {product.variants.map((variant) => (
                       <button
@@ -181,14 +181,14 @@ export default function ProductDetailPage() {
                     : "bg-cyan-500 hover:bg-cyan-400 text-black"
                 } disabled:opacity-50`}
               >
-                {adding ? "Adding..." : added ? "Added to Cart!" : "Add to Cart"}
+                {adding ? "Añadiendo..." : added ? "¡Añadido al Carrito!" : "Añadir al Carrito"}
               </button>
 
               <Link
                 href="/store/cart"
                 className="block w-full py-4 px-8 rounded-lg font-semibold text-center mt-4 border border-zinc-800 hover:border-zinc-700 transition-colors"
               >
-                View Cart
+                Ver Carrito
               </Link>
             </div>
           </div>
