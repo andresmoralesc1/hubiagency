@@ -59,26 +59,6 @@ export default function Home() {
         </div>
       </DataGridHero>
 
-      {/* AI Abstract Image Section */}
-      <section className="relative w-full h-[50vh] overflow-hidden">
-        <img
-          src="https://images.pexels.com/photos/17483870/pexels-photo-17483870.png?auto=compress&cs=tinysrgb&h=1200&w=1920"
-          alt="AI Neural Networks Abstract"
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-8 max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up">
-              Transformando Negocios con IA
-            </h2>
-            <p className="text-lg text-white/80 animate-fade-in-up delay-200">
-              Desde automatización de flujos de trabajo hasta soluciones personalizadas de IA, te ayudamos a aprovechar el poder de la inteligencia artificial.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Services Preview Section */}
       <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
         <div className="orb orb-cyan w-[400px] h-[400px] -top-48 left-1/2 -translate-x-1/2 opacity-20" />
@@ -112,7 +92,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-16">
-            <ShinyButton href="/store/products">
+            <ShinyButton href="/store/products" variant="default">
               Ver Servicios de IA
             </ShinyButton>
           </div>
@@ -161,8 +141,8 @@ export default function Home() {
         <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Tecnologías que Dominamos</h2>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <h2 className="text-3xl font-bold mb-12 animate-fade-in-up">Tecnologías que Dominamos</h2>
+          <div className="flex flex-wrap justify-center gap-4">
             {["n8n", "LangChain", "Ollama", "OpenAI", "RAG", "Vector DBs", "PostgreSQL", "Redis"].map((tech, i) => (
               <span
                 key={tech}
@@ -173,12 +153,6 @@ export default function Home() {
               </span>
             ))}
           </div>
-          <p className="text-lg text-zinc-400 max-w-2xl mx-auto text-center">
-            Transformando Negocios con IA
-          </p>
-          <p className="text-zinc-500 max-w-2xl mx-auto text-center">
-            Desde automatización de flujos de trabajo hasta soluciones personalizadas de IA, te ayudamos a aprovechar el poder de la inteligencia artificial.
-          </p>
         </div>
       </section>
 
