@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { MicroInteractions } from "@/components/micro-interactions";
+import { LoadingProvider } from "@/components/ui/loading-provider";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -53,9 +55,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <MicroInteractions />
-        {children}
-        <Footer />
+        <LoadingProvider>
+          <WhatsAppButton />
+          <MicroInteractions />
+          {children}
+          <Footer />
+        </LoadingProvider>
       </body>
     </html>
   );
