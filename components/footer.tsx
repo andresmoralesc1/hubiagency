@@ -44,7 +44,7 @@ const contactInfo = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-16 w-full overflow-hidden bg-black/90 pt-16 pb-6 border-t border-zinc-800/50">
+    <footer className="relative w-full overflow-hidden bg-black/90 pt-16 pb-6 border-t border-zinc-800/50">
       {/* Background orbs */}
       <div className="pointer-events-none absolute top-0 left-1/2 z-0 h-full w-full -translate-x-1/2 select-none">
         <div className="absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />

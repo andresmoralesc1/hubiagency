@@ -192,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black text-white pt-24 pb-16 px-8 relative overflow-hidden">
+      <section className="bg-black text-white pb-16 px-8 relative overflow-hidden">
         <div className="orb orb-cyan w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
 
         <div className="max-w-2xl mx-auto text-center relative z-10">
