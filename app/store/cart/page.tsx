@@ -33,7 +33,7 @@ export default function CartPage() {
       <div className="min-h-screen bg-black text-white">
         <Header />
         <div className="pt-32 text-center">
-          <div className="text-cyan-400 text-xl">Loading...</div>
+          <div className="text-cyan-400 text-xl">Cargando...</div>
         </div>
       </div>
     );
@@ -45,13 +45,13 @@ export default function CartPage() {
         <Header />
         <section className="pt-32 pb-16 px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6">Your Cart</h1>
-            <p className="text-zinc-400 mb-8">Your cart is empty</p>
+            <h1 className="text-4xl font-bold mb-6">Tu Carrito</h1>
+            <p className="text-zinc-400 mb-8">Tu carrito está vacío</p>
             <Link
               href="/store/products"
               className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors"
             >
-              Browse Services
+              Explorar Servicios
             </Link>
           </div>
         </section>
@@ -65,7 +65,7 @@ export default function CartPage() {
 
       <section className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Your Cart</h1>
+          <h1 className="text-4xl font-bold mb-8">Tu Carrito</h1>
 
           <div className="space-y-4 mb-8">
             {cart.items.map((item, index) => (
@@ -75,8 +75,8 @@ export default function CartPage() {
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="font-semibold">Service Item</h3>
-                    <p className="text-zinc-400 text-sm">Quantity: {item.quantity}</p>
+                    <h3 className="font-semibold">Servicio</h3>
+                    <p className="text-zinc-400 text-sm">Cantidad: {item.quantity}</p>
                   </div>
                 </div>
               </div>
@@ -89,8 +89,8 @@ export default function CartPage() {
               <span>{formatPrice(cart.total || 0)}</span>
             </div>
             <div className="flex justify-between items-center mb-4">
-              <span className="text-zinc-400">Tax</span>
-              <span className="text-zinc-400">Calculated at checkout</span>
+              <span className="text-zinc-400">Impuesto</span>
+              <span className="text-zinc-400">Calculado al finalizar</span>
             </div>
             <div className="border-t border-zinc-800 pt-4 flex justify-between items-center">
               <span className="text-xl font-semibold">Total</span>
@@ -105,13 +105,13 @@ export default function CartPage() {
               href="/store/products"
               className="flex-1 py-4 px-8 rounded-lg font-semibold text-center border border-zinc-800 hover:border-zinc-700 transition-colors"
             >
-              Continue Shopping
+              Continuar Comprando
             </Link>
             <Link
               href="/store/checkout"
               className="flex-1 py-4 px-8 rounded-lg font-semibold text-center bg-cyan-500 hover:bg-cyan-400 text-black transition-colors"
             >
-              Proceed to Checkout
+              Proceder al Pago
             </Link>
           </div>
         </div>

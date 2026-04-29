@@ -30,7 +30,7 @@ export default function CheckoutPage() {
     try {
       const cartId = localStorage.getItem("medusa_cart_id");
       if (!cartId) {
-        alert("Cart not found");
+        alert("Carrito no encontrado");
         return;
       }
 
@@ -45,11 +45,11 @@ export default function CheckoutPage() {
         setOrderPlaced(true);
         localStorage.removeItem("medusa_cart_id");
       } else {
-        alert("Failed to place order");
+        alert("Error al realizar el pedido");
       }
     } catch (error) {
       console.error(error);
-      alert("Error placing order");
+      alert("Error al realizar el pedido");
     } finally {
       setLoading(false);
     }
@@ -62,16 +62,16 @@ export default function CheckoutPage() {
         <section className="pt-32 pb-16 px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="text-6xl mb-6">✅</div>
-            <h1 className="text-4xl font-bold mb-4">Order Confirmed!</h1>
+            <h1 className="text-4xl font-bold mb-4">¡Pedido Confirmado!</h1>
             <p className="text-zinc-400 mb-6">
-              Thank you for your order. We&apos;ll be in touch within 24 hours to discuss next steps.
+              Gracias por tu pedido. Nos pondremos en contacto dentro de 24 horas para discutir los siguientes pasos.
             </p>
-            <p className="text-cyan-400 font-mono mb-8">Order ID: {orderId}</p>
+            <p className="text-cyan-400 font-mono mb-8">ID del Pedido: {orderId}</p>
             <Link
               href="/store/products"
               className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors"
             >
-              Continue Browsing
+              Continuar Navegando
             </Link>
           </div>
         </section>
@@ -89,16 +89,16 @@ export default function CheckoutPage() {
             href="/store/cart"
             className="text-zinc-400 hover:text-white transition-colors mb-8 inline-block"
           >
-            ← Back to Cart
+            ← Volver al Carrito
           </Link>
 
-          <h1 className="text-4xl font-bold mb-8">Checkout</h1>
+          <h1 className="text-4xl font-bold mb-8">Finalizar Compra</h1>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Form */}
             <div>
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
+                <h2 className="text-xl font-semibold mb-4">Información de Contacto</h2>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">Email *</label>
@@ -114,7 +114,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">First Name *</label>
+                      <label className="block text-sm font-medium mb-2">Nombre *</label>
                       <input
                         type="text"
                         name="first_name"
@@ -125,7 +125,7 @@ export default function CheckoutPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Last Name *</label>
+                      <label className="block text-sm font-medium mb-2">Apellido *</label>
                       <input
                         type="text"
                         name="last_name"
@@ -137,7 +137,7 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Phone</label>
+                    <label className="block text-sm font-medium mb-2">Teléfono</label>
                     <input
                       type="tel"
                       name="phone"
@@ -150,10 +150,10 @@ export default function CheckoutPage() {
               </div>
 
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Billing Address</h2>
+                <h2 className="text-xl font-semibold mb-4">Dirección de Facturación</h2>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Address</label>
+                    <label className="block text-sm font-medium mb-2">Dirección</label>
                     <input
                       type="text"
                       name="address_1"
@@ -164,7 +164,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">City</label>
+                      <label className="block text-sm font-medium mb-2">Ciudad</label>
                       <input
                         type="text"
                         name="city"
@@ -174,7 +174,7 @@ export default function CheckoutPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Postal Code</label>
+                      <label className="block text-sm font-medium mb-2">Código Postal</label>
                       <input
                         type="text"
                         name="postal_code"
@@ -185,7 +185,7 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Country</label>
+                    <label className="block text-sm font-medium mb-2">País</label>
                     <select
                       name="country_code"
                       value={formData.country_code}
@@ -206,15 +206,15 @@ export default function CheckoutPage() {
                 disabled={loading || !formData.email || !formData.first_name || !formData.last_name}
                 className="w-full py-4 px-8 rounded-lg font-semibold bg-cyan-500 hover:bg-cyan-400 text-black transition-colors disabled:opacity-50"
               >
-                {loading ? "Processing..." : "Place Order"}
+                {loading ? "Procesando..." : "Realizar Pedido"}
               </button>
             </div>
 
             {/* Order Summary */}
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-950/50 h-fit">
-              <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
+              <h2 className="text-xl font-semibold mb-6">Resumen del Pedido</h2>
               <p className="text-zinc-400 text-sm">
-                This is a demo checkout. For actual payments, Stripe integration would be required.
+                Este es un checkout de demostración. Para pagos reales, se requeriría integración con Stripe.
               </p>
             </div>
           </div>
