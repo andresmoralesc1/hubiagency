@@ -34,10 +34,16 @@ export default function Home() {
         <p
           style={{
             fontSize: "1.1rem",
-            color: "rgba(255, 255, 255, 0.8)",
+            color: "rgba(255, 255, 255, 0.95)",
             letterSpacing: "0.3em",
             textTransform: "uppercase",
             marginTop: "1rem",
+            textShadow: "0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(0,212,255,0.3)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            padding: "0.5rem 1rem",
+            borderRadius: "0.25rem",
+            background: "rgba(255,255,255,0.05)",
+            backdropFilter: "blur(10px)",
           }}
         >
           Automate • Innovate • Elevate
@@ -46,13 +52,16 @@ export default function Home() {
           <Link
             href="/store/products"
             style={{
-              padding: "1rem 2rem",
-              backgroundColor: "hsl(180, 100%, 50%)",
-              color: "black",
-              fontWeight: "bold",
+              padding: "1rem 2.5rem",
+              backgroundColor: "transparent",
+              color: "white",
+              fontWeight: 600,
               borderRadius: "0.5rem",
               textDecoration: "none",
-              transition: "all 0.2s",
+              transition: "all 0.3s ease",
+              border: "1px solid rgba(255,255,255,0.4)",
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.08)",
             }}
           >
             View AI Services
@@ -60,19 +69,40 @@ export default function Home() {
           <Link
             href="/contact"
             style={{
-              padding: "1rem 2rem",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
+              padding: "1rem 2.5rem",
+              backgroundColor: "hsl(280, 80%, 60%)",
               color: "white",
-              fontWeight: "bold",
+              fontWeight: 600,
               borderRadius: "0.5rem",
               textDecoration: "none",
-              transition: "all 0.2s",
+              transition: "all 0.3s ease",
+              border: "1px solid transparent",
             }}
           >
             Contact Us
           </Link>
         </div>
       </DataGridHero>
+
+      {/* AI Abstract Image Section */}
+      <section className="relative w-full h-[50vh] overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/17483870/pexels-photo-17483870.png?auto=compress&cs=tinysrgb&h=1200&w=1920"
+          alt="AI Neural Networks Abstract"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-8 max-w-3xl">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up">
+              Transforming Businesses with AI
+            </h2>
+            <p className="text-lg text-white/80 animate-fade-in-up delay-200">
+              From workflow automation to custom AI solutions, we help you leverage the power of artificial intelligence.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Services Preview Section */}
       <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
