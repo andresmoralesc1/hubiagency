@@ -1,10 +1,12 @@
 import Link from "next/link";
 import DataGridHero from "@/components/ui/data-grid-hero";
 import { ShinyButton } from "@/components/ui/shiny-button";
+import { Header } from "@/components/header";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
+      <Header />
       <DataGridHero
         rows={25}
         cols={40}
