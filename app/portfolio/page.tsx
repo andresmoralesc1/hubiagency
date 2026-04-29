@@ -1,9 +1,9 @@
-import Link from "next/link";
+import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 
 export const metadata = {
-  title: "Portfolio | hubIAgency - AI Automation Success Stories",
-  description: "See how we've helped companies transform with AI automation. Real results for Fondo Regional de Garantías, Superllantas, and Octava Club.",
+  title: "Portafolio | hubIAgency - Historias de Éxito en Automatización con IA",
+  description: "Ve cómo hemos ayudado a empresas a transformarse con automatización de IA. Resultados reales para Fondo Regional de Garantías, Superllantas y Octava Club.",
 };
 
 const projects = [
@@ -66,10 +66,10 @@ export default function PortfolioPage() {
       <section className="pt-32 pb-16 px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-            Our Work
+            Nuestro Trabajo
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Real results for real businesses. See how we've helped companies transform with AI.
+            Resultados reales para negocios reales. Mira cómo hemos ayudado a empresas a transformarse con IA.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function PortfolioPage() {
               <h2 className="text-2xl font-semibold mb-3 animate-fade-in-up">{project.title}</h2>
               <p className="text-zinc-400 mb-6 animate-fade-in-up delay-100">{project.description}</p>
               <div className="animate-fade-in-up delay-200">
-                <h3 className="text-sm font-semibold text-zinc-300 mb-3">Key Results:</h3>
+                <h3 className="text-sm font-semibold text-zinc-300 mb-3">Resultados Clave:</h3>
                 <div className="grid md:grid-cols-3 gap-4">
                   {project.results.map((result, i) => (
                     <div key={i} className="flex items-center gap-2 text-zinc-400 p-3 glass rounded-lg">
@@ -112,11 +112,11 @@ export default function PortfolioPage() {
       {/* CTA Section */}
       <section className="py-16 px-8 border-t border-zinc-800 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Ready to Achieve Similar Results?</h2>
-          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Let's discuss how we can help transform your business.</p>
-          <Link href="/contact" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
-            Start Your Project
-          </Link>
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">¿Listo para Lograr Resultados Similares?</h2>
+          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Discutamos cómo podemos ayudar a transformar tu negocio.</p>
+          <ShinyButton href="/contact">
+            Iniciar Tu Proyecto
+          </ShinyButton>
         </div>
       </section>
     </div>

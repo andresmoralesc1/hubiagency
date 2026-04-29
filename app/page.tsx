@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DataGridHero from "@/components/ui/data-grid-hero";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 export default function Home() {
   return (
@@ -49,38 +50,12 @@ export default function Home() {
           Automatizar • Innovar • Elevar
         </p>
         <div style={{ marginTop: "3rem", display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
-          <Link
-            href="/store/products"
-            style={{
-              padding: "1rem 2.5rem",
-              backgroundColor: "transparent",
-              color: "white",
-              fontWeight: 600,
-              borderRadius: "0.5rem",
-              textDecoration: "none",
-              transition: "all 0.3s ease",
-              border: "1px solid rgba(255,255,255,0.4)",
-              backdropFilter: "blur(10px)",
-              background: "rgba(255,255,255,0.08)",
-            }}
-          >
+          <ShinyButton href="/store/products" variant="outline">
             Ver Servicios de IA
-          </Link>
-          <Link
-            href="/contact"
-            style={{
-              padding: "1rem 2.5rem",
-              backgroundColor: "hsl(280, 80%, 60%)",
-              color: "white",
-              fontWeight: 600,
-              borderRadius: "0.5rem",
-              textDecoration: "none",
-              transition: "all 0.3s ease",
-              border: "1px solid transparent",
-            }}
-          >
+          </ShinyButton>
+          <ShinyButton href="/contact">
             Contáctanos
-          </Link>
+          </ShinyButton>
         </div>
       </DataGridHero>
 
@@ -137,9 +112,9 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-16">
-            <Link href="/store/products" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
+            <ShinyButton href="/store/products">
               Ver Servicios de IA
-            </Link>
+            </ShinyButton>
           </div>
         </div>
       </section>
@@ -186,8 +161,8 @@ export default function Home() {
         <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-12 animate-fade-in-up">Tecnologías que Dominamos</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Tecnologías que Dominamos</h2>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             {["n8n", "LangChain", "Ollama", "OpenAI", "RAG", "Vector DBs", "PostgreSQL", "Redis"].map((tech, i) => (
               <span
                 key={tech}
@@ -198,6 +173,12 @@ export default function Home() {
               </span>
             ))}
           </div>
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto text-center">
+            Transformando Negocios con IA
+          </p>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-center">
+            Desde automatización de flujos de trabajo hasta soluciones personalizadas de IA, te ayudamos a aprovechar el poder de la inteligencia artificial.
+          </p>
         </div>
       </section>
 
@@ -246,12 +227,12 @@ export default function Home() {
             Discutamos cómo la IA puede revolucionar tus operaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap stagger-children">
-            <Link href="/contact" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
+            <ShinyButton href="/contact">
               Programar una Llamada
-            </Link>
-            <Link href="/store/products" className="btn-shine inline-block px-8 py-4 border border-zinc-700 hover:border-cyan-500/50 font-semibold rounded-lg transition-all hover-scale">
-              Browse Services
-            </Link>
+            </ShinyButton>
+            <ShinyButton href="/store/products" variant="outline">
+              Explorar Servicios
+            </ShinyButton>
           </div>
         </div>
       </section>

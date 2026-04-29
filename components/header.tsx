@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/store/products", label: "Store" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Inicio" },
+  { href: "/services", label: "Servicios" },
+  { href: "/store/products", label: "Tienda" },
+  { href: "/portfolio", label: "Portafolio" },
+  { href: "/contact", label: "Contacto" },
 ];
 
 export function Header() {

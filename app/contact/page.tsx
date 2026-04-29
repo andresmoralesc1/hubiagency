@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "@/components/header";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ export default function ContactPage() {
         setError(data.error || "Failed to send message");
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError("Error de red. Por favor intenta de nuevo.");
     } finally {
       setIsLoading(false);
     }
@@ -54,10 +55,10 @@ export default function ContactPage() {
       <section className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Get in Touch
+            Ponerse en Contacto
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Ready to transform your business with AI? Let's start the conversation.
+            ¿Listo para transformar tu negocio con IA? Comencemos la conversación.
           </p>
         </div>
       </section>
@@ -69,7 +70,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name *
+                  Nombre *
                 </label>
                 <input
                   type="text"
@@ -79,7 +80,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
-                  placeholder="Your name"
+                  placeholder="Tu nombre"
                 />
               </div>
 
@@ -101,7 +102,7 @@ export default function ContactPage() {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium mb-2">
-                  Company
+                  Empresa
                 </label>
                 <input
                   type="text"
@@ -110,13 +111,13 @@ export default function ContactPage() {
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
-                  placeholder="Your company name"
+                  placeholder="Nombre de tu empresa"
                 />
               </div>
 
               <div>
                 <label htmlFor="service" className="block text-sm font-medium mb-2">
-                  Service Interest
+                  Servicio de Interés
                 </label>
                 <select
                   id="service"
@@ -125,18 +126,18 @@ export default function ContactPage() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
                 >
-                  <option value="">Select a service</option>
-                  <option value="workflow">Workflow Automation</option>
-                  <option value="chatbot">AI Chatbots</option>
-                  <option value="custom">Custom AI Development</option>
-                  <option value="consulting">AI Consulting</option>
-                  <option value="other">Other</option>
+                  <option value="">Selecciona un servicio</option>
+                  <option value="workflow">Automatización de Flujos de Trabajo</option>
+                  <option value="chatbot">Chatbots con IA</option>
+                  <option value="custom">Desarrollo de IA Personalizada</option>
+                  <option value="consulting">Consultoría de IA</option>
+                  <option value="other">Otro</option>
                 </select>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message *
+                  Mensaje *
                 </label>
                 <textarea
                   id="message"
@@ -146,13 +147,13 @@ export default function ContactPage() {
                   onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors resize-none"
-                  placeholder="Tell us about your project or inquiry..."
+                  placeholder="Cuéntanos sobre tu proyecto o consulta..."
                 />
               </div>
 
               {success && (
                 <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400">
-                  Message sent! We&apos;ll be in touch within 24 hours.
+                  ¡Mensaje enviado! Nos pondremos en contacto dentro de 24 horas.
                 </div>
               )}
 
@@ -167,12 +168,12 @@ export default function ContactPage() {
                 disabled={isLoading}
                 className="w-full px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors disabled:opacity-50"
               >
-                {isLoading ? "Sending..." : "Send Message"}
+                {isLoading ? "Enviando..." : "Enviar Mensaje"}
               </button>
             </form>
 
             <div className="mt-8 pt-8 border-t border-zinc-800">
-              <p className="text-center text-zinc-400 mb-4">Or reach us directly</p>
+              <p className="text-center text-zinc-400 mb-4">O contáctanos directamente</p>
               <div className="flex justify-center gap-6 text-sm">
                 <a href="mailto:hello@hubiagency.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                   hello@hubiagency.com
@@ -186,22 +187,22 @@ export default function ContactPage() {
       {/* Additional Info */}
       <section className="py-16 px-8 border-t border-zinc-800">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-semibold mb-4">What Happens Next?</h2>
+          <h2 className="text-2xl font-semibold mb-4">¿Qué Sigue?</h2>
           <div className="grid md:grid-cols-3 gap-8 text-left mt-8">
             <div>
               <div className="text-2xl mb-2">📅</div>
-              <h3 className="font-semibold mb-1">1. We'll Reach Out</h3>
-              <p className="text-sm text-zinc-400">Within 24 hours, we'll contact you to schedule a discovery call.</p>
+              <h3 className="font-semibold mb-1">1. Nos Pondremos en Contacto</h3>
+              <p className="text-sm text-zinc-400">En 24 horas, te contactaremos para programar una llamada de descubrimiento.</p>
             </div>
             <div>
               <div className="text-2xl mb-2">💡</div>
-              <h3 className="font-semibold mb-1">2. Discovery Call</h3>
-              <p className="text-sm text-zinc-400">We'll learn about your challenges and discuss potential solutions.</p>
+              <h3 className="font-semibold mb-1">2. Llamada de Descubrimiento</h3>
+              <p className="text-sm text-zinc-400">Aprenderemos sobre tus desafíos y discutiremos posibles soluciones.</p>
             </div>
             <div>
               <div className="text-2xl mb-2">📋</div>
-              <h3 className="font-semibold mb-1">3. Custom Proposal</h3>
-              <p className="text-sm text-zinc-400">You'll receive a tailored proposal with clear deliverables and pricing.</p>
+              <h3 className="font-semibold mb-1">3. Propuesta Personalizada</h3>
+              <p className="text-sm text-zinc-400">Recibirás una propuesta a medida con entregables claros y precios.</p>
             </div>
           </div>
         </div>

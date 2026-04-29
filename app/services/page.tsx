@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 
 export default function ServicesPage() {
@@ -14,10 +14,10 @@ export default function ServicesPage() {
       <section className="pt-32 pb-16 px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-            Our Services
+            Nuestros Servicios
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Comprehensive AI solutions designed to transform how your business operates
+            Soluciones completas de IA diseñadas para transformar cómo opera tu negocio
           </p>
         </div>
       </section>
@@ -32,14 +32,14 @@ export default function ServicesPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">Workflow Automation</h2>
                 <p className="text-zinc-400 mb-4">
-                  Eliminate repetitive tasks and streamline your operations with intelligent automation.
-                  We analyze your existing processes and implement solutions that save time and reduce errors.
+                  Elimina tareas repetitivas y optimiza tus operaciones con automatización inteligente.
+                  Analizamos tus procesos existentes e implementamos soluciones que ahorran tiempo y reducen errores.
                 </p>
                 <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Process mapping and optimization</li>
-                  <li className="animate-fade-in-left delay-200">• Custom automation workflows</li>
-                  <li className="animate-fade-in-left delay-300">• Integration with existing tools</li>
-                  <li className="animate-fade-in-left delay-400">• Ongoing monitoring and improvement</li>
+                  <li className="animate-fade-in-left delay-100">• Mapeo y optimización de procesos</li>
+                  <li className="animate-fade-in-left delay-200">• Flujos de trabajo de automatización personalizados</li>
+                  <li className="animate-fade-in-left delay-300">• Integración con herramientas existentes</li>
+                  <li className="animate-fade-in-left delay-400">• Monitoreo y mejora continua</li>
                 </ul>
               </div>
             </div>
@@ -52,14 +52,14 @@ export default function ServicesPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">AI Chatbots</h2>
                 <p className="text-zinc-400 mb-4">
-                  Deploy intelligent conversational AI that enhances customer engagement and provides 24/7 support.
-                  Our chatbots understand context and deliver personalized experiences.
+                  Implementa IA conversacional inteligente que mejora el engagement del cliente y proporciona soporte 24/7.
+                  Nuestros chatbots entienden contexto y ofrecen experiencias personalizadas.
                 </p>
                 <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Custom chatbot development</li>
-                  <li className="animate-fade-in-left delay-200">• Multi-channel deployment</li>
-                  <li className="animate-fade-in-left delay-300">• Natural language processing</li>
-                  <li className="animate-fade-in-left delay-400">• Analytics and insights</li>
+                  <li className="animate-fade-in-left delay-100">• Desarrollo de chatbots personalizados</li>
+                  <li className="animate-fade-in-left delay-200">• Despliegue multi-canal</li>
+                  <li className="animate-fade-in-left delay-300">• Procesamiento de lenguaje natural</li>
+                  <li className="animate-fade-in-left delay-400">• Análisis e insights</li>
                 </ul>
               </div>
             </div>
@@ -72,14 +72,14 @@ export default function ServicesPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">Custom AI Development</h2>
                 <p className="text-zinc-400 mb-4">
-                  Build tailored AI solutions designed specifically for your unique business challenges.
-                  From predictive analytics to computer vision, we bring cutting-edge AI to your industry.
+                  Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos.
+                  Desde análisis predictivo hasta visión por computadora, llevamos IA de vanguardia a tu industria.
                 </p>
                 <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Custom model development</li>
-                  <li className="animate-fade-in-left delay-200">• Data pipeline architecture</li>
-                  <li className="animate-fade-in-left delay-300">• API integration and deployment</li>
-                  <li className="animate-fade-in-left delay-400">• Continuous learning and updates</li>
+                  <li className="animate-fade-in-left delay-100">• Desarrollo de modelos personalizados</li>
+                  <li className="animate-fade-in-left delay-200">• Arquitectura de pipelines de datos</li>
+                  <li className="animate-fade-in-left delay-300">• Integración y despliegue de APIs</li>
+                  <li className="animate-fade-in-left delay-400">• Aprendizaje continuo y actualizaciones</li>
                 </ul>
               </div>
             </div>
@@ -92,14 +92,14 @@ export default function ServicesPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">AI Consulting</h2>
                 <p className="text-zinc-400 mb-4">
-                  Strategic guidance to help you navigate the AI landscape and make informed decisions
-                  about technology investments that drive real business value.
+                  Guía estratégica para ayudarte a navegar el panorama de la IA y tomar decisiones informadas
+                  sobre inversiones tecnológicas que generan valor real de negocio.
                 </p>
                 <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• AI readiness assessment</li>
-                  <li className="animate-fade-in-left delay-200">• Technology stack recommendations</li>
-                  <li className="animate-fade-in-left delay-300">• ROI analysis and planning</li>
-                  <li className="animate-fade-in-left delay-400">• Implementation roadmaps</li>
+                  <li className="animate-fade-in-left delay-100">• Evaluación de preparación para IA</li>
+                  <li className="animate-fade-in-left delay-200">• Recomendaciones de stack tecnológico</li>
+                  <li className="animate-fade-in-left delay-300">• Análisis de ROI y planificación</li>
+                  <li className="animate-fade-in-left delay-400">• Hojas de ruta de implementación</li>
                 </ul>
               </div>
             </div>
@@ -110,15 +110,15 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 px-8 border-t border-zinc-800 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Ready to Get Started?</h2>
-          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Browse our AI services or schedule a consultation.</p>
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">¿Listo para Comenzar?</h2>
+          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Explora nuestros servicios de IA o programa una consulta.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/store/products" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
-              Browse Services
-            </Link>
-            <Link href="/contact" className="btn-shine inline-block px-8 py-4 border border-zinc-700 hover:border-cyan-500/50 font-semibold rounded-lg transition-all hover-scale">
-              Schedule Consultation
-            </Link>
+            <ShinyButton href="/store/products">
+              Explorar Servicios
+            </ShinyButton>
+            <ShinyButton href="/contact" variant="outline">
+              Programar Consulta
+            </ShinyButton>
           </div>
         </div>
       </section>

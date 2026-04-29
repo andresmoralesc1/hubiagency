@@ -10,10 +10,10 @@ export default function AboutPage() {
       <section className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            About hubIAgency
+            Sobre hubIAgency
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            We're on a mission to make intelligent automation accessible to every business
+            Nuestra misión es hacer la automatización inteligente accesible para cada negocio
           </p>
         </div>
       </section>
@@ -22,65 +22,65 @@ export default function AboutPage() {
       <section className="py-16 px-8">
         <div className="max-w-4xl mx-auto">
           <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 mb-12">
-            <h2 className="text-3xl font-semibold mb-4 text-cyan-400">Our Mission</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-cyan-400">Nuestra Misión</h2>
             <p className="text-zinc-300 text-lg leading-relaxed">
-              At hubIAgency, we believe that AI and automation should be tools that empower businesses,
-              not complicate them. Our mission is to bridge the gap between cutting-edge technology
-              and practical business solutions, helping companies of all sizes harness the power of AI
-              to work smarter, not harder.
+              En hubIAgency, creemos que la IA y la automatización deben ser herramientas que empoderen a las empresas,
+              no complicarlas. Nuestra misión es cerrar la brecha entre la tecnología de vanguardia
+              y las soluciones prácticas de negocio, ayudando a empresas de todos los tamaños a aprovechar
+              el poder de la IA para trabajar de manera más inteligente, no más difícil.
             </p>
           </div>
 
           {/* Values */}
-          <h2 className="text-3xl font-semibold mb-8 text-center">Our Values</h2>
+          <h2 className="text-3xl font-semibold mb-8 text-center">Nuestros Valores</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
               <div className="text-3xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold mb-2">Results-Driven</h3>
-              <p className="text-zinc-400">Every solution we build is focused on delivering measurable business outcomes.</p>
+              <h3 className="text-xl font-semibold mb-2">Enfocados en Resultados</h3>
+              <p className="text-zinc-400">Cada solución que construimos está enfocada en entregar resultados de negocio medibles.</p>
             </div>
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
               <div className="text-3xl mb-4">🔐</div>
-              <h3 className="text-xl font-semibold mb-2">Trust & Transparency</h3>
-              <p className="text-zinc-400">We believe in clear communication and honest partnerships with our clients.</p>
+              <h3 className="text-xl font-semibold mb-2">Confianza y Transparencia</h3>
+              <p className="text-zinc-400">Creemos en la comunicación clara y alianzas honestas con nuestros clientes.</p>
             </div>
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
               <div className="text-3xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold mb-2">Continuous Innovation</h3>
-              <p className="text-zinc-400">We stay at the forefront of AI technology to bring you the best solutions.</p>
+              <h3 className="text-xl font-semibold mb-2">Innovación Continua</h3>
+              <p className="text-zinc-400">Nos mantenemos a la vanguardia de la tecnología de IA para traerte las mejores soluciones.</p>
             </div>
           </div>
 
           {/* Approach */}
           <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50">
-            <h2 className="text-3xl font-semibold mb-6 text-cyan-400">Our Approach</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-cyan-400">Nuestro Enfoque</h2>
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">1</div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Discovery</h3>
-                  <p className="text-zinc-400">We start by understanding your business, challenges, and goals deeply.</p>
+                  <h3 className="text-xl font-semibold mb-2">Descubrimiento</h3>
+                  <p className="text-zinc-400">Comenzamos entendiendo profundamente tu negocio, desafíos y objetivos.</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">2</div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Strategy</h3>
-                  <p className="text-zinc-400">We design a tailored solution roadmap with clear milestones and ROI projections.</p>
+                  <h3 className="text-xl font-semibold mb-2">Estrategia</h3>
+                  <p className="text-zinc-400">Diseñamos una hoja de ruta de solución personalizada con hitos claros y proyecciones de ROI.</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">3</div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Implementation</h3>
-                  <p className="text-zinc-400">We build and deploy your solution with rigorous testing and quality assurance.</p>
+                  <h3 className="text-xl font-semibold mb-2">Implementación</h3>
+                  <p className="text-zinc-400">Construimos y desplegamos tu solución con pruebas rigurosas y control de calidad.</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">4</div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Support</h3>
-                  <p className="text-zinc-400">We provide ongoing support, monitoring, and optimization to ensure continued success.</p>
+                  <h3 className="text-xl font-semibold mb-2">Soporte</h3>
+                  <p className="text-zinc-400">Proporcionamos soporte continuo, monitoreo y optimización para asegurar el éxito continuado.</p>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-16 px-8 border-t border-zinc-800">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Our Team</h2>
+          <h2 className="text-3xl font-semibold mb-8 text-center">Nuestro Equipo</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
               <div className="w-24 h-24 rounded-full bg-cyan-500/20 mx-auto mb-4 flex items-center justify-center">
@@ -120,10 +120,10 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-16 px-8 border-t border-zinc-800">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-zinc-400 mb-8">Ready to transform your business? Get in touch with our team.</p>
+          <h2 className="text-3xl font-bold mb-4">Trabajemos Juntos</h2>
+          <p className="text-zinc-400 mb-8">¿Listo para transformar tu negocio? Contacta a nuestro equipo.</p>
           <Link href="/contact" className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
-            Contact Us
+            Contáctanos
           </Link>
         </div>
       </section>

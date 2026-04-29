@@ -18,22 +18,22 @@ const socialLinks = [
 ];
 
 const aboutLinks = [
-  { text: "About Us", href: "/about" },
-  { text: "Portfolio", href: "/portfolio" },
-  { text: "Our Team", href: "/about" },
+  { text: "Sobre Nosotros", href: "/about" },
+  { text: "Portafolio", href: "/portfolio" },
+  { text: "Nuestro Equipo", href: "/about" },
 ];
 
 const serviceLinks = [
-  { text: "Workflow Automation", href: "/services" },
-  { text: "AI Chatbots", href: "/services" },
-  { text: "Custom AI Development", href: "/services" },
-  { text: "AI Consulting", href: "/services" },
+  { text: "Automatización de Flujos de Trabajo", href: "/services" },
+  { text: "Chatbots con IA", href: "/services" },
+  { text: "Desarrollo de IA Personalizada", href: "/services" },
+  { text: "Consultoría de IA", href: "/services" },
 ];
 
 const helpfulLinks = [
   { text: "Brief", href: "/brief", hasIndicator: true },
   { text: "Contact", href: "/contact" },
-  { text: "Get Started", href: "/brief" },
+  { text: "Comenzar", href: "/brief" },
 ];
 
 const contactInfo = [
@@ -111,7 +111,7 @@ export function Footer() {
         <nav className="flex w-full flex-col gap-9 text-center md:w-auto md:flex-row md:justify-end md:text-left">
           <div>
             <div className="mb-3 text-xs font-semibold tracking-widest text-cyan-400 uppercase">
-              About
+              Sobre Nosotros
             </div>
             <ul className="space-y-2">
               {aboutLinks.map(({ text, href }) => (
@@ -126,7 +126,7 @@ export function Footer() {
 
           <div>
             <div className="mb-3 text-xs font-semibold tracking-widest text-cyan-400 uppercase">
-              Services
+              Servicios
             </div>
             <ul className="space-y-2">
               {serviceLinks.map(({ text, href }) => (
@@ -141,7 +141,7 @@ export function Footer() {
 
           <div>
             <div className="mb-3 text-xs font-semibold tracking-widest text-cyan-400 uppercase">
-              Get Started
+              Comenzar
             </div>
             <ul className="space-y-2">
               {helpfulLinks.map(({ text, href, hasIndicator }) => (
@@ -165,7 +165,7 @@ export function Footer() {
 
           <div>
             <div className="mb-3 text-xs font-semibold tracking-widest text-cyan-400 uppercase">
-              Contact
+              Contacto
             </div>
             <ul className="space-y-3">
               {contactInfo.map(({ icon: Icon, text, isAddress }) => (
@@ -191,14 +191,14 @@ export function Footer() {
       <div className="relative z-10 mt-8 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/50 px-6 pt-6 text-center md:flex-row">
         <div className="flex gap-6 text-sm text-zinc-500">
           <Link href="/privacy" className="hover:text-cyan-400 transition">
-            Privacy Policy
+            Política de Privacidad
           </Link>
           <Link href="/terms" className="hover:text-cyan-400 transition">
-            Terms of Service
+            Términos de Servicio
           </Link>
         </div>
         <p className="text-zinc-500 text-sm">
-          © {new Date().getFullYear()} {data.company.name}. All rights reserved.
+          © {new Date().getFullYear()} {data.company.name}. Todos los derechos reservados.
         </p>
       </div>
     </footer>

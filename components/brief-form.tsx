@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 const tools = [
   "Google Sheets", "Excel", "CRM (HubSpot, Salesforce)", "Slack",
@@ -84,9 +85,9 @@ export function BriefForm() {
               Mientras tanto, explora nuestros casos de éxito en el{" "}
               <Link href="/portfolio" className="text-cyan-400 hover:underline">portafolio</Link>.
             </p>
-            <Link href="/contact" className="inline-block px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
+            <ShinyButton href="/contact">
               Agendar llamada ahora
-            </Link>
+            </ShinyButton>
           </div>
         </section>
       </div>
