@@ -46,7 +46,7 @@ export default function Home() {
             backdropFilter: "blur(10px)",
           }}
         >
-          Automate • Innovate • Elevate
+          Automatizar • Innovar • Elevar
         </p>
         <div style={{ marginTop: "3rem", display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           <Link
@@ -64,7 +64,7 @@ export default function Home() {
               background: "rgba(255,255,255,0.08)",
             }}
           >
-            View AI Services
+            Ver Servicios de IA
           </Link>
           <Link
             href="/contact"
@@ -79,7 +79,7 @@ export default function Home() {
               border: "1px solid transparent",
             }}
           >
-            Contact Us
+            Contáctanos
           </Link>
         </div>
       </DataGridHero>
@@ -95,10 +95,10 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-8 max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up">
-              Transforming Businesses with AI
+              Transformando Negocios con IA
             </h2>
             <p className="text-lg text-white/80 animate-fade-in-up delay-200">
-              From workflow automation to custom AI solutions, we help you leverage the power of artificial intelligence.
+              Desde automatización de flujos de trabajo hasta soluciones personalizadas de IA, te ayudamos a aprovechar el poder de la inteligencia artificial.
             </p>
           </div>
         </div>
@@ -110,35 +110,35 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center animate-fade-in-up">
-            What We Do
+            Lo Que Hacemos
           </h2>
           <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Transform your business with cutting-edge AI solutions and intelligent automation
+            Transforma tu negocio con soluciones de IA de vanguardia y automatización inteligente
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 stagger-children">
             <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float">⚡</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Workflow Automation</h3>
-              <p className="text-zinc-400">Streamline operations and eliminate repetitive tasks with intelligent automation solutions.</p>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Automatización de Flujos de Trabajo</h3>
+              <p className="text-zinc-400">Optimiza operaciones y elimina tareas repetitivas con soluciones de automatización inteligente.</p>
             </Link>
 
             <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.3s'}}>🤖</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">AI Chatbots</h3>
-              <p className="text-zinc-400">Deploy intelligent conversational AI that enhances customer engagement and support.</p>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Chatbots con IA</h3>
+              <p className="text-zinc-400">Implementa IA conversacional inteligente que mejora el engagement y soporte al cliente.</p>
             </Link>
 
             <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.6s'}}>🧠</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Custom AI Development</h3>
-              <p className="text-zinc-400">Build tailored AI solutions designed specifically for your unique business challenges.</p>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Desarrollo de IA Personalizada</h3>
+              <p className="text-zinc-400">Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos.</p>
             </Link>
           </div>
 
           <div className="text-center mt-16">
             <Link href="/store/products" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
-              View AI Services
+              Ver Servicios de IA
             </Link>
           </div>
         </div>
@@ -150,32 +150,32 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-4 text-center animate-fade-in-up">
-            Why Choose hubIAgency
+            Por Qué Elegir hubIAgency
           </h2>
           <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto animate-fade-in-up delay-100">
-            We combine deep technical expertise with business acumen to deliver solutions that drive real results.
+            Combinamos experiencia técnica profunda con conocimiento de negocio para entregar soluciones que generan resultados reales.
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 stagger-children">
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">50+</div>
-              <h3 className="font-semibold mb-2">Projects Delivered</h3>
-              <p className="text-zinc-400 text-sm">Across various industries and use cases</p>
+              <h3 className="font-semibold mb-2">Proyectos Entregados</h3>
+              <p className="text-zinc-400 text-sm">En diversas industrias y casos de uso</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">85%</div>
-              <h3 className="font-semibold mb-2">Cost Reduction</h3>
-              <p className="text-zinc-400 text-sm">Average savings in operational costs</p>
+              <h3 className="font-semibold mb-2">Reducción de Costos</h3>
+              <p className="text-zinc-400 text-sm">Ahorro promedio en costos operativos</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">24/7</div>
-              <h3 className="font-semibold mb-2">AI Availability</h3>
-              <p className="text-zinc-400 text-sm">Continuous automated operations</p>
+              <h3 className="font-semibold mb-2">Disponibilidad de IA 24/7</h3>
+              <p className="text-zinc-400 text-sm">Operaciones automatizadas continuas</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">100%</div>
-              <h3 className="font-semibold mb-2">Client Satisfaction</h3>
-              <p className="text-zinc-400 text-sm">Dedicated support and follow-up</p>
+              <h3 className="font-semibold mb-2">Satisfacción del Cliente</h3>
+              <p className="text-zinc-400 text-sm">Soporte y seguimiento dedicado</p>
             </div>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function Home() {
         <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-12 animate-fade-in-up">Technologies We Master</h2>
+          <h2 className="text-3xl font-bold mb-12 animate-fade-in-up">Tecnologías que Dominamos</h2>
           <div className="flex flex-wrap justify-center gap-4">
             {["n8n", "LangChain", "Ollama", "OpenAI", "RAG", "Vector DBs", "PostgreSQL", "Redis"].map((tech, i) => (
               <span
@@ -205,32 +205,32 @@ export default function Home() {
       <section className="bg-zinc-950 text-white py-24 px-8 border-y border-zinc-800/50 relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-4 text-center animate-fade-in-up">
-            Our Process
+            Nuestro Proceso
           </h2>
           <p className="text-center text-zinc-400 mb-16 animate-fade-in-up delay-100">
-            From discovery to deployment, we ensure a seamless journey
+            Desde el descubrimiento hasta el despliegue, aseguramos un viaje seamless
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 stagger-children">
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">1</div>
-              <h3 className="font-semibold mb-2">Discovery</h3>
-              <p className="text-zinc-400 text-sm">Understanding your needs and goals</p>
+              <h3 className="font-semibold mb-2">Descubrimiento</h3>
+              <p className="text-zinc-400 text-sm">Entendiendo tus necesidades y objetivos</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">2</div>
-              <h3 className="font-semibold mb-2">Strategy</h3>
-              <p className="text-zinc-400 text-sm">Designing the optimal solution</p>
+              <h3 className="font-semibold mb-2">Estrategia</h3>
+              <p className="text-zinc-400 text-sm">Diseñando la solución óptima</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">3</div>
-              <h3 className="font-semibold mb-2">Implementation</h3>
-              <p className="text-zinc-400 text-sm">Building and testing your solution</p>
+              <h3 className="font-semibold mb-2">Implementación</h3>
+              <p className="text-zinc-400 text-sm">Construyendo y probando tu solución</p>
             </div>
             <div className="text-center glass-dark p-6 rounded-2xl">
               <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">4</div>
-              <h3 className="font-semibold mb-2">Support</h3>
-              <p className="text-zinc-400 text-sm">Ongoing optimization and help</p>
+              <h3 className="font-semibold mb-2">Soporte</h3>
+              <p className="text-zinc-400 text-sm">Optimización y ayuda continua</p>
             </div>
           </div>
         </div>
@@ -241,13 +241,13 @@ export default function Home() {
         <div className="orb orb-cyan w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
 
         <div className="max-w-2xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl font-bold mb-6 animate-fade-in-up">Ready to Transform Your Business?</h2>
+          <h2 className="text-4xl font-bold mb-6 animate-fade-in-up">¿Listo para Transformar Tu Negocio?</h2>
           <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">
-            Let&apos;s discuss how AI can revolutionize your operations.
+            Discutamos cómo la IA puede revolucionar tus operaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap stagger-children">
             <Link href="/contact" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
-              Schedule a Call
+              Programar una Llamada
             </Link>
             <Link href="/store/products" className="btn-shine inline-block px-8 py-4 border border-zinc-700 hover:border-cyan-500/50 font-semibold rounded-lg transition-all hover-scale">
               Browse Services
