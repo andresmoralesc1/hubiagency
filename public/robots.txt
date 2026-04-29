@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and api routes
+Disallow: /admin
+Disallow: /api/
+Disallow: /store/checkout
+Disallow: /store/cart
+
+# Sitemap
+Sitemap: https://hubiagency.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
