@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
-  title: "Términos de Servicio",
-  description: "Términos de Servicio de hubIAgency - Condiciones que rigen el uso de nuestros servicios.",
+  title: "Terms of Service",
+  description: "Terms of Service for hubIAgency - Conditions governing the use of our services.",
 };
 
 export default function TermsPage() {
@@ -13,40 +13,39 @@ export default function TermsPage() {
 
       <section className="pt-32 pb-16 px-8">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Términos de Servicio</h1>
+          <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
 
           <div className="prose prose-invert prose-zinc max-w-none space-y-6">
-            <p className="text-zinc-400">Última actualización: {new Date().toLocaleDateString("es-ES")}</p>
+            <p className="text-zinc-400">Last updated: {new Date().toLocaleDateString()}</p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">1. Aceptación de los Términos</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">1. Acceptance of Terms</h2>
             <p className="text-zinc-300">
-              Al acceder y usar el sitio web y servicios de hubIAgency, aceptas y aceptas estar bound
-              por los términos y disposiciones de este acuerdo.
+              By accessing and using hubIAgency&apos;s website and services, you accept and agree to be bound
+              by the terms and provision of this agreement.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">2. Descripción de los Servicios</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">2. Services Description</h2>
             <p className="text-zinc-300">
-              hubIAgency proporciona servicios de consultoría B2B enfocados en automatización de flujos de trabajo,
-              chatbots de IA y desarrollo de IA personalizado. Los detalles específicos de los servicios se proporcionan
-              en propuestas y contratos.
+              hubIAgency provides B2B consulting services focused on workflow automation, AI chatbots,
+              and custom AI development. Specific service details are provided in proposals and contracts.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">3. Términos de Pago</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">3. Payment Terms</h2>
             <p className="text-zinc-300">
-              Los términos de pago se especifican en acuerdos de servicio individuales. Generalmente, se requiere
-              un depósito del 50% antes del inicio del proyecto, con el saldo pendiente al Completion.
+              Payment terms are specified in individual service agreements. Generally, a 50% deposit
+              is required before project commencement, with the balance due upon completion.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">4. Propiedad Intelectual</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">4. Intellectual Property</h2>
             <p className="text-zinc-300">
-              Con el pago completo, los clientes reciben propiedad de las soluciones desarrolladas personalizadas.
-              Bibliotecas, herramientas y frameworks preexistentes permanecen como propiedad de sus respectivos dueños.
+              Upon full payment, clients receive ownership of custom-developed solutions. Pre-existing
+              libraries, tools, and frameworks remain the property of their respective owners.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">5. Confidencialidad</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">5. Confidentiality</h2>
             <p className="text-zinc-300">
-              Ambas partes acuerdan mantener la confidencialidad de la información propietaria compartida
-              durante el compromiso. Esta obligación sobrevive a la terminación del acuerdo.
+              Both parties agree to maintain the confidentiality of proprietary information shared
+              during the engagement. This obligation survives termination of the agreement.
             </p>
 
             <h2 className="text-2xl font-semibold mt-8 mb-4">6. Limitation of Liability</h2>

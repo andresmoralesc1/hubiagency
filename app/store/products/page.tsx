@@ -40,10 +40,10 @@ export default function StoreProductsPage() {
       <section className="pt-32 pb-16 px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Servicios de IA
+            AI Services
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Transforma tu negocio con nuestras soluciones de automatización inteligente
+            Transform your business with our intelligent automation solutions
           </p>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function StoreProductsPage() {
         <div className="max-w-6xl mx-auto">
           {loading && (
             <div className="text-center py-20">
-              <div className="text-cyan-400 text-xl">Cargando productos...</div>
+              <div className="text-cyan-400 text-xl">Loading products...</div>
             </div>
           )}
 
@@ -65,7 +65,7 @@ export default function StoreProductsPage() {
 
           {!loading && !error && products.length === 0 && (
             <div className="text-center py-20 text-zinc-400">
-              No hay productos disponibles aún. ¡Vuelve pronto!
+              No products available yet. Check back soon!
             </div>
           )}
 
@@ -98,7 +98,7 @@ export default function StoreProductsPage() {
                   </p>
                   {cheapestVariant && (
                     <div className="text-cyan-400 font-semibold">
-                      Desde {formatPrice(cheapestVariant.prices[0]?.amount || 0)}
+                      From {formatPrice(cheapestVariant.prices[0]?.amount || 0)}
                     </div>
                   )}
                 </Link>
