@@ -22,39 +22,55 @@ export function Header() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center gap-6 py-4 bg-black backdrop-blur-xl border-b border-cyan-500/50">
-        {/* Mobile: Hamburger button */}
-        <button
-          onClick={() => setIsMenuOpen(true)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white md:hidden"
-          aria-label="Open menu"
-        >
-          <Menu className="size-6" />
-        </button>
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
+        {/* Glass container */}
+        <div className="relative mx-auto max-w-5xl flex items-center justify-between px-6 py-3 rounded-2xl bg-zinc-950/60 backdrop-blur-2xl border border-zinc-800/50 shadow-lg shadow-cyan-500/5">
+          {/* Mobile: Hamburger button */}
+          <button
+            onClick={() => setIsMenuOpen(true)}
+            className="p-2 text-white hover:text-white md:hidden"
+            aria-label="Open menu"
+          >
+            <Menu className="size-5" />
+          </button>
 
-        <Link href="/" className="flex items-center gap-2">
-          <Image src={logo} alt="Hubiagency Logo" width={24} height={24} className="w-6 h-6" />
-          <span className="text-cyan-400 font-bold text-lg">HUBIAGENCY</span>
-        </Link>
+          {/* Logo - No text */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logo}
+              alt="Hubiagency"
+              width={120}
+              height={40}
+              className="w-auto h-10 object-contain"
+              unoptimized
+              priority
+            />
+          </Link>
 
-        {/* Desktop: Navigation links - hidden on mobile */}
-        <div className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 link-underline ${
-                pathname === link.href
-                  ? "text-cyan-400"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              {link.label}
-              {pathname === link.href && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" />
-              )}
-            </Link>
-          ))}
+          {/* Desktop: Navigation links */}
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-xl ${
+                  pathname === link.href
+                    ? "text-cyan-400 bg-cyan-500/10"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA - Brief button */}
+          <Link
+            href="/brief"
+            className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 text-black hover:from-cyan-400 hover:to-cyan-300 transition-all duration-300 shadow-lg shadow-cyan-500/25"
+          >
+            Brief
+          </Link>
         </div>
       </nav>
 

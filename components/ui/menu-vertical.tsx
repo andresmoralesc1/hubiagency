@@ -2,7 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
+import logo from "@/Media/Logo.png";
 
 interface MenuVerticalProps {
   isOpen: boolean;
@@ -11,6 +14,8 @@ interface MenuVerticalProps {
 }
 
 export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
+  const pathname = usePathname();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,8 +41,15 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
             <div className="flex flex-col h-full p-6">
               {/* Header with Logo and Close button */}
               <div className="flex items-center justify-between mb-8">
-                <Link href="/" className="flex items-center gap-2" onClick={onClose}>
-                  <span className="text-cyan-400 font-bold text-lg">HUBIAGENCY</span>
+                <Link href="/" className="flex items-center" onClick={onClose}>
+                  <Image
+                    src={logo}
+                    alt="Hubiagency"
+                    width={120}
+                    height={40}
+                    className="w-auto h-10 object-contain"
+                    unoptimized
+                  />
                 </Link>
                 <button
                   onClick={onClose}
@@ -55,13 +67,26 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
                     key={link.href}
                     href={link.href}
                     onClick={onClose}
-                    className="group flex items-center justify-between px-4 py-3 text-white/70 hover:text-white hover:bg-cyan-500/10 rounded-lg transition-all duration-200"
+                    className={`group flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 ${
+                      pathname === link.href
+                        ? "text-cyan-400 bg-cyan-500/10"
+                        : "text-white/70 hover:text-white hover:bg-cyan-500/10"
+                    }`}
                   >
                     <span className="font-medium">{link.label}</span>
                     <ArrowRight className="size-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-cyan-400" />
                   </Link>
                 ))}
               </nav>
+
+              {/* Brief CTA */}
+              <Link
+                href="/brief"
+                onClick={onClose}
+                className="mt-4 flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 text-black hover:from-cyan-400 hover:to-cyan-300 transition-all duration-300 shadow-lg shadow-cyan-500/25"
+              >
+                Brief
+              </Link>
 
               {/* Close hint */}
               <p className="text-zinc-500 text-xs text-center mt-4">
