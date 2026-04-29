@@ -15,7 +15,8 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center gap-6 py-6 bg-black/60 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center gap-6 py-4 bg-black backdrop-blur-xl border-b border-cyan-500/50">
+      <span className="text-cyan-400 font-bold text-lg">HUBIAGENCY</span>
       {navLinks.map((link) => (
         <Link
           key={link.href}
