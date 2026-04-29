@@ -138,6 +138,12 @@ export default function Home() {
 
       {/* Technologies */}
       <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/17483870/pexels-photo-17483870.png?auto=compress&cs=tinysrgb&h=800&w=1920"
+          alt="AI Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
         <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -192,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black text-white pb-16 px-8 relative overflow-hidden">
+      <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
         <div className="orb orb-cyan w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
 
         <div className="max-w-2xl mx-auto text-center relative z-10">
