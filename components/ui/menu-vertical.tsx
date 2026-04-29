@@ -2,10 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
-import logo from "@/Media/Logo.png";
 
 interface MenuVerticalProps {
   isOpen: boolean;
@@ -42,13 +40,10 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
               {/* Header with Logo and Close button */}
               <div className="flex items-center justify-between mb-8">
                 <Link href="/" className="flex items-center" onClick={onClose}>
-                  <Image
-                    src={logo}
+                  <img
+                    src="/Media/Logo.png"
                     alt="Hubiagency"
-                    width={700}
-                    height={169}
-                    className="w-auto h-8 object-contain"
-                    unoptimized
+                    className="h-8 w-auto"
                   />
                 </Link>
                 <button

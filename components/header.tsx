@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import logo from "@/Media/Logo.png";
 import { MenuVertical } from "@/components/ui/menu-vertical";
 
 const navLinks = [
@@ -34,16 +32,12 @@ export function Header() {
             <Menu className="size-5" />
           </button>
 
-          {/* Logo - No text */}
+          {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image
-              src={logo}
+            <img
+              src="/Media/Logo.png"
               alt="Hubiagency"
-              width={700}
-              height={169}
-              className="w-auto h-8 object-contain"
-              unoptimized
-              priority
+              className="h-8 w-auto"
             />
           </Link>
 
