@@ -88,6 +88,35 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-16 px-8 border-t border-zinc-800">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold mb-8 text-center">Our Team</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
+              <div className="w-24 h-24 rounded-full bg-cyan-500/20 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-4xl">👤</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Tu Nombre</h3>
+              <p className="text-cyan-400 mb-4">Founder & Lead Engineer</p>
+              <p className="text-zinc-400 text-sm">
+                Automatización inteligente y soluciones AI a medida. Construyendo el futuro de las operaciones empresariales.
+              </p>
+            </div>
+            <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 text-center">
+              <div className="w-24 h-24 rounded-full bg-cyan-500/20 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-4xl">👨‍💻</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Alejandro Montes</h3>
+              <p className="text-cyan-400 mb-4">AI Architect</p>
+              <p className="text-zinc-400 text-sm">
+                Especializado enLangChain, RAG, y despliegue de agentes AI locales con Ollama.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-8 border-t border-zinc-800">
         <div className="max-w-2xl mx-auto text-center">

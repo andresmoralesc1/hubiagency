@@ -1,30 +1,55 @@
 import Link from "next/link";
 import { Header } from "@/components/header";
 
+export const metadata = {
+  title: "Portfolio | hubIAgency - AI Automation Success Stories",
+  description: "See how we've helped companies transform with AI automation. Real results for Fondo Regional de Garantías, Superllantas, and Octava Club.",
+};
+
 const projects = [
   {
-    title: "E-Commerce Automation Platform",
+    title: "Automatización de Validación de Pólizas",
     category: "Workflow Automation",
-    description: "Automated order processing and inventory management for a leading retailer",
-    results: ["70% reduction in processing time", "99.9% accuracy improvement", "24/7 automated operations"]
+    client: "Fondo Regional de Garantías",
+    description: "Sistema de automatización que valida y procesa pólizas de garantía automáticamente, eliminando la entrada manual de datos en múltiples sistemas.",
+    results: [
+      "12+ horas de trabajo manual ahorradas diariamente",
+      "99.5% de precisión en validación de datos",
+      "Procesamiento 10x más rápido"
+    ]
   },
   {
-    title: "AI Customer Support Bot",
+    title: "Bot de WhatsApp para Agendamiento",
     category: "AI Chatbot",
-    description: "Intelligent support assistant for a SaaS company handling 10,000+ daily queries",
-    results: ["85% query resolution rate", "50% reduction in support costs", "95% customer satisfaction"]
+    client: "Octava Club",
+    description: "Asistente virtual de WhatsApp que maneja reservas de canchas, responde preguntas frecuentes y envía recordatorios automáticos a los usuarios.",
+    results: [
+      "85% de consultas resueltas sin intervención humana",
+      "200+ reservas mensuales automatizadas",
+      "Respuesta instantánea 24/7"
+    ]
   },
   {
-    title: "Predictive Analytics Dashboard",
-    category: "Custom AI",
-    description: "Machine learning model for sales forecasting and inventory optimization",
-    results: ["40% improvement in forecast accuracy", "25% reduction in stockouts", "$2M annual savings"]
-  },
-  {
-    title: "Document Processing System",
+    title: "Pipeline de Automatización Integral",
     category: "Workflow Automation",
-    description: "AI-powered document extraction and processing for financial services",
-    results: ["90% faster document processing", "95% extraction accuracy", "Zero manual data entry"]
+    client: "Superllantas",
+    description: "Automatización del flujo de trabajo completo desde la recepción de órdenes hasta la facturación y gestión de inventario de neumáticos.",
+    results: [
+      "70% reducción en tiempo de procesamiento",
+      "Eliminación de errores de captura manual",
+      "Integración en tiempo real con sistemas existentes"
+    ]
+  },
+  {
+    title: "Dashboard de Métricas con IA",
+    category: "Custom AI",
+    client: "Fondo Regional de Garantías",
+    description: "Tablero de control con insights generados por IA que analiza datos históricos y predice tendencias para toma de decisiones estratégicas.",
+    results: [
+      "40% mejora en precisión de forecasts",
+      "Reportes automáticos generados con IA",
+      "Visualización en tiempo real de KPIs"
+    ]
   }
 ];
 
@@ -50,9 +75,12 @@ export default function PortfolioPage() {
         <div className="max-w-5xl mx-auto space-y-8">
           {projects.map((project, index) => (
             <div key={index} className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 hover:border-cyan-500/30 transition-colors">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="px-3 py-1 text-sm bg-cyan-500/20 text-cyan-400 rounded-full">
                   {project.category}
+                </span>
+                <span className="px-3 py-1 text-sm bg-zinc-800 text-zinc-300 rounded-full">
+                  {project.client}
                 </span>
               </div>
               <h2 className="text-2xl font-semibold mb-3">{project.title}</h2>
