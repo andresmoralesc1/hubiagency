@@ -380,3 +380,194 @@
   background-clip: text;
   animation: gradient-shift 3s ease infinite;
 }
+
+/* ===== PAGE TRANSITIONS 2027 ===== */
+@keyframes page-out {
+  0% { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes page-in {
+  0% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+.animate-page-out {
+  animation: page-out 0.4s ease forwards;
+}
+
+.animate-page-in {
+  animation: page-in 0.4s ease forwards;
+}
+
+/* ===== 3D TILT CARDS ===== */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card-inner {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== CUSTOM SCROLLBAR 2027 ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(180, 100%, 50%), hsl(200, 100%, 40%));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(180, 100%, 60%);
+}
+
+/* ===== MAGNETIC BUTTON ===== */
+.magnetic {
+  transition: transform 0.15s ease-out;
+}
+
+/* ===== RIPPLE EFFECT ===== */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+}
+
+/* ===== MARQUEE / SCROLL TEXT ===== */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ===== SPARKLE EFFECT ===== */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* ===== GLITCH TEXT ===== */
+@keyframes glitch {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 2px); }
+  40% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
+  60% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, 1px); }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -1px); }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease infinite;
+}
+
+/* ===== BLUR ON SCROLL ===== */
+.blur-on-scroll {
+  filter: blur(0);
+  transition: filter 0.5s ease;
+}
+
+.blur-on-scroll.scrolled {
+  filter: blur(4px);
+}
+
+/* ===== 2027 GLASS OVERLAYS ===== */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== NEON BORDERS ===== */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5), 0 0 10px rgba(0, 212, 255, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.5); }
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* ===== STAGGER CHILDREN ===== */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 600ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 700ms; }
+
+/* ===== SKEW ON HOVER ===== */
+.hover-skew {
+  transition: transform 0.3s ease;
+}
+
+.hover-skew:hover {
+  transform: skewX(-5deg);
+}
+
+/* ===== LINK UNDERLINE ANIMATION ===== */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}

@@ -75,37 +75,39 @@ export default function Home() {
       </DataGridHero>
 
       {/* Services Preview Section */}
-      <section className="bg-black text-white py-24 px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+      <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
+        <div className="orb orb-cyan w-[400px] h-[400px] -top-48 left-1/2 -translate-x-1/2 opacity-20" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center animate-fade-in-up">
             What We Do
           </h2>
-          <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto">
+          <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto animate-fade-in-up delay-200">
             Transform your business with cutting-edge AI solutions and intelligent automation
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/services" className="group p-8 border border-zinc-800 hover:border-cyan-500/50 transition-all rounded-lg bg-zinc-950/50">
-              <div className="text-cyan-400 text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Workflow Automation</h3>
+          <div className="grid md:grid-cols-3 gap-6 stagger-children">
+            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+              <div className="text-cyan-400 text-4xl mb-4 float">⚡</div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Workflow Automation</h3>
               <p className="text-zinc-400">Streamline operations and eliminate repetitive tasks with intelligent automation solutions.</p>
             </Link>
 
-            <Link href="/services" className="group p-8 border border-zinc-800 hover:border-cyan-500/50 transition-all rounded-lg bg-zinc-950/50">
-              <div className="text-cyan-400 text-4xl mb-4">🤖</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">AI Chatbots</h3>
+            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+              <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.3s'}}>🤖</div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">AI Chatbots</h3>
               <p className="text-zinc-400">Deploy intelligent conversational AI that enhances customer engagement and support.</p>
             </Link>
 
-            <Link href="/services" className="group p-8 border border-zinc-800 hover:border-cyan-500/50 transition-all rounded-lg bg-zinc-950/50">
-              <div className="text-cyan-400 text-4xl mb-4">🧠</div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Custom AI Development</h3>
+            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+              <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.6s'}}>🧠</div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Custom AI Development</h3>
               <p className="text-zinc-400">Build tailored AI solutions designed specifically for your unique business challenges.</p>
             </Link>
           </div>
 
           <div className="text-center mt-16">
-            <Link href="/store/products" className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
+            <Link href="/store/products" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
               View AI Services
             </Link>
           </div>
@@ -113,33 +115,35 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-zinc-950 text-white py-24 px-8 border-y border-zinc-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center">
+      <section className="bg-zinc-950 text-white py-24 px-8 border-y border-zinc-800/50 relative overflow-hidden">
+        <div className="orb orb-purple w-80 h-80 top-0 right-0 opacity-15" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="text-4xl font-bold mb-4 text-center animate-fade-in-up">
             Why Choose hubIAgency
           </h2>
-          <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto">
+          <p className="text-center text-zinc-400 mb-16 max-w-2xl mx-auto animate-fade-in-up delay-100">
             We combine deep technical expertise with business acumen to deliver solutions that drive real results.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-cyan-400 text-5xl mb-4">50+</div>
+          <div className="grid md:grid-cols-4 gap-8 stagger-children">
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="text-cyan-400 text-5xl mb-4 font-bold">50+</div>
               <h3 className="font-semibold mb-2">Projects Delivered</h3>
               <p className="text-zinc-400 text-sm">Across various industries and use cases</p>
             </div>
-            <div className="text-center">
-              <div className="text-cyan-400 text-5xl mb-4">85%</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="text-cyan-400 text-5xl mb-4 font-bold">85%</div>
               <h3 className="font-semibold mb-2">Cost Reduction</h3>
               <p className="text-zinc-400 text-sm">Average savings in operational costs</p>
             </div>
-            <div className="text-center">
-              <div className="text-cyan-400 text-5xl mb-4">24/7</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="text-cyan-400 text-5xl mb-4 font-bold">24/7</div>
               <h3 className="font-semibold mb-2">AI Availability</h3>
               <p className="text-zinc-400 text-sm">Continuous automated operations</p>
             </div>
-            <div className="text-center">
-              <div className="text-cyan-400 text-5xl mb-4">100%</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="text-cyan-400 text-5xl mb-4 font-bold">100%</div>
               <h3 className="font-semibold mb-2">Client Satisfaction</h3>
               <p className="text-zinc-400 text-sm">Dedicated support and follow-up</p>
             </div>
@@ -148,50 +152,53 @@ export default function Home() {
       </section>
 
       {/* Technologies */}
-      <section className="bg-black text-white py-24 px-8">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Technologies We Master</h2>
-          <div className="flex flex-wrap justify-center gap-8 text-zinc-400">
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">n8n</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">LangChain</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">Ollama</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">OpenAI</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">RAG</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">Vector DBs</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">PostgreSQL</span>
-            <span className="px-6 py-3 border border-zinc-800 rounded-full hover:border-cyan-500/50 transition-colors">Redis</span>
+      <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
+        <div className="orb orb-cyan w-64 h-64 bottom-0 left-0 opacity-10" />
+
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl font-bold mb-12 animate-fade-in-up">Technologies We Master</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {["n8n", "LangChain", "Ollama", "OpenAI", "RAG", "Vector DBs", "PostgreSQL", "Redis"].map((tech, i) => (
+              <span
+                key={tech}
+                className="px-6 py-3 glass rounded-full hover:neon-border hover-scale transition-all cursor-default"
+                style={{animationDelay: `${i * 100}ms`}}
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Process */}
-      <section className="bg-zinc-950 text-white py-24 px-8 border-y border-zinc-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center">
+      <section className="bg-zinc-950 text-white py-24 px-8 border-y border-zinc-800/50 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl font-bold mb-4 text-center animate-fade-in-up">
             Our Process
           </h2>
-          <p className="text-center text-zinc-400 mb-16">
+          <p className="text-center text-zinc-400 mb-16 animate-fade-in-up delay-100">
             From discovery to deployment, we ensure a seamless journey
           </p>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4">1</div>
+          <div className="grid md:grid-cols-4 gap-8 stagger-children">
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">1</div>
               <h3 className="font-semibold mb-2">Discovery</h3>
               <p className="text-zinc-400 text-sm">Understanding your needs and goals</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4">2</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">2</div>
               <h3 className="font-semibold mb-2">Strategy</h3>
               <p className="text-zinc-400 text-sm">Designing the optimal solution</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4">3</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">3</div>
               <h3 className="font-semibold mb-2">Implementation</h3>
               <p className="text-zinc-400 text-sm">Building and testing your solution</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4">4</div>
+            <div className="text-center glass-dark p-6 rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">4</div>
               <h3 className="font-semibold mb-2">Support</h3>
               <p className="text-zinc-400 text-sm">Ongoing optimization and help</p>
             </div>
@@ -200,17 +207,19 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black text-white py-24 px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-zinc-400 mb-8">
+      <section className="bg-black text-white py-24 px-8 relative overflow-hidden">
+        <div className="orb orb-cyan w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
+
+        <div className="max-w-2xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl font-bold mb-6 animate-fade-in-up">Ready to Transform Your Business?</h2>
+          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">
             Let&apos;s discuss how AI can revolutionize your operations.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/contact" className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
+          <div className="flex gap-4 justify-center flex-wrap stagger-children">
+            <Link href="/contact" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
               Schedule a Call
             </Link>
-            <Link href="/store/products" className="inline-block px-8 py-4 border border-zinc-700 hover:border-zinc-500 font-semibold rounded-lg transition-colors">
+            <Link href="/store/products" className="btn-shine inline-block px-8 py-4 border border-zinc-700 hover:border-cyan-500/50 font-semibold rounded-lg transition-all hover-scale">
               Browse Services
             </Link>
           </div>
