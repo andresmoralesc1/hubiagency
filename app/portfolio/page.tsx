@@ -55,43 +55,51 @@ const projects = [
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Floating orbs background */}
+      <div className="orb orb-cyan w-[500px] h-[500px] top-20 -right-64 opacity-20" />
+      <div className="orb orb-purple w-96 h-96 bottom-40 -left-48 opacity-15" />
+
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-8">
+      <section className="pt-32 pb-16 px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
             Our Work
           </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto animate-fade-in-up delay-200">
             Real results for real businesses. See how we've helped companies transform with AI.
           </p>
         </div>
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 px-8">
+      <section className="py-16 px-8 relative z-10">
         <div className="max-w-5xl mx-auto space-y-8">
           {projects.map((project, index) => (
-            <div key={index} className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 hover:border-cyan-500/30 transition-colors">
+            <div
+              key={index}
+              className="glass-dark p-8 rounded-2xl card-hover border-glow"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="px-3 py-1 text-sm bg-cyan-500/20 text-cyan-400 rounded-full">
+                <span className="px-3 py-1 text-sm bg-cyan-500/20 text-cyan-400 rounded-full border border-cyan-500/30">
                   {project.category}
                 </span>
-                <span className="px-3 py-1 text-sm bg-zinc-800 text-zinc-300 rounded-full">
+                <span className="px-3 py-1 text-sm bg-zinc-800/50 text-zinc-300 rounded-full">
                   {project.client}
                 </span>
               </div>
-              <h2 className="text-2xl font-semibold mb-3">{project.title}</h2>
-              <p className="text-zinc-400 mb-6">{project.description}</p>
-              <div>
+              <h2 className="text-2xl font-semibold mb-3 animate-fade-in-up">{project.title}</h2>
+              <p className="text-zinc-400 mb-6 animate-fade-in-up delay-100">{project.description}</p>
+              <div className="animate-fade-in-up delay-200">
                 <h3 className="text-sm font-semibold text-zinc-300 mb-3">Key Results:</h3>
                 <div className="grid md:grid-cols-3 gap-4">
                   {project.results.map((result, i) => (
-                    <div key={i} className="flex items-center gap-2 text-zinc-400">
-                      <span className="text-cyan-400">✓</span>
-                      <span>{result}</span>
+                    <div key={i} className="flex items-center gap-2 text-zinc-400 p-3 glass rounded-lg">
+                      <span className="text-cyan-400 pulse-glow rounded-full p-1">✓</span>
+                      <span className="text-sm">{result}</span>
                     </div>
                   ))}
                 </div>
@@ -102,11 +110,11 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-8 border-t border-zinc-800">
+      <section className="py-16 px-8 border-t border-zinc-800 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Achieve Similar Results?</h2>
-          <p className="text-zinc-400 mb-8">Let's discuss how we can help transform your business.</p>
-          <Link href="/contact" className="inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Ready to Achieve Similar Results?</h2>
+          <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Let's discuss how we can help transform your business.</p>
+          <Link href="/contact" className="btn-shine inline-block px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-all hover-scale">
             Start Your Project
           </Link>
         </div>
