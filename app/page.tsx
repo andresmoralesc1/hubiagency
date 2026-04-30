@@ -5,7 +5,6 @@ import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 
 const DataGridHero = dynamic(() => import("@/components/ui/data-grid-hero").then(m => m.default), {
-  loading: () => <div className="h-screen bg-black" />,
   ssr: false,
 });
 
