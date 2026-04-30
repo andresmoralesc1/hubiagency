@@ -5,120 +5,132 @@ import { Header } from "@/components/header";
 const services = [
   {
     id: "automation",
-    icon: "⚡",
+    number: "01",
     title: "Workflow Automation",
-    description: "Automatiza procesos repetitivos y optimiza operaciones. Implementamos flujos que reducen errores y ahorran horas de trabajo manual.",
-    features: ["Mapeo y automatización de procesos", "Flujos de trabajo con n8n", "Integración API con tu stack actual", "Reportes de tiempo ahorrado"],
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-    imageAlt: "Automatización de flujo de trabajo con tecnología moderna",
-    price: "Desde $500/mes"
+    tagline: "Elimina lo repetitivo",
+    description: "Automatiza procesos y optimiza operaciones. Reducimos errores y ahorramos horas de trabajo manual con flujos inteligentes.",
+    features: ["Mapeo y automatización de procesos", "Flujos de trabajo con n8n", "Integración API con tu stack", "Reportes de tiempo ahorrado"],
+    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"
   },
   {
     id: "chatbots",
-    icon: "🤖",
+    number: "02",
     title: "AI Chatbots",
-    description: "Chatbots inteligentes que entienden contexto y ofrecen soporte 24/7. Integración con WhatsApp, web y más canales.",
-    features: ["Chatbots personalizados con GPT-4", "Integración WhatsApp + Web + Slack", "NLP en español con contexto", "Dashboard de conversaciones"],
-    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
-    imageAlt: "Chatbot con IA conversacional",
-    price: "Desde $300/mes"
+    tagline: "Soporte 24/7",
+    description: "Chatbots inteligentes que entienden contexto. Integración con WhatsApp, web y más canales con NLP en español.",
+    features: ["GPT-4 personalizado", "WhatsApp + Web + Slack", "NLP con contexto", "Dashboard de conversaciones"],
+    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg"
   },
   {
     id: "custom-ai",
-    icon: "🧠",
+    number: "03",
     title: "Custom AI Development",
-    description: "Modelos de IA diseñados para tus datos y desafíos específicos. Desde análisis predictivo hasta visión por computadora.",
-    features: ["Fine-tuning de modelos open source", "Pipelines de datos con LangChain", "Despliegue API personalizada", "Monitoreo y versionado de modelos"],
-    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg",
-    imageAlt: "Desarrollo de inteligencia artificial personalizada",
-    price: "Desde $2,000/proyecto"
+    tagline: "IA a tu medida",
+    description: "Modelos diseñados para tus datos. Desde análisis predictivo hasta visión por computadora con LangChain.",
+    features: ["Fine-tuning de modelos", "Pipelines con LangChain", "API personalizada", "Monitoreo y versionado"],
+    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg"
   },
   {
     id: "consulting",
-    icon: "💼",
+    number: "04",
     title: "AI Consulting",
-    description: "Estrategia clara para implementar IA en tu negocio. Evaluamos, planificamos y ejecutamos con ROI medible.",
-    features: ["Auditoría de procesos actuales", "Roadmap de IA en 90 días", "Stack tecnológico recomendado", "Métricas de ROI garantizadas"],
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-    imageAlt: "Consultoría en inteligencia artificial",
-    price: "Sesión desde $200"
+    tagline: "Estrategia con ROI",
+    description: "Evaluamos, planificamos y ejecutamos. roadmap de IA en 90 días con métricas de ROI garantizadas.",
+    features: ["Auditoría de procesos", "Roadmap en 90 días", "Stack tecnológico", "Métricas de ROI"],
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
   }
 ];
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Floating orbs background */}
-      <div className="orb orb-cyan w-96 h-96 -top-48 -left-48 opacity-30" />
-      <div className="orb orb-purple w-80 h-80 top-1/2 -right-40 opacity-20" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-zinc-950" />
 
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-8 relative z-10">
+      <section className="pt-32 pb-24 px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-            Nuestros Servicios
+          <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4">Servicios</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-zinc-400 bg-clip-text text-transparent">
+            Soluciones de IA
           </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Soluciones completas de IA diseñadas para transformar cómo opera tu negocio
+          <p className="text-xl text-zinc-500 max-w-2xl mx-auto">
+            Transformamos cómo opera tu negocio con automatización inteligente y IA personalizada
           </p>
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-16 px-8 relative z-10">
-        <div className="max-w-5xl mx-auto space-y-16">
+      {/* Services Grid */}
+      <section className="py-16 px-4 md:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
-            <div key={service.id} className="glass-dark p-6 md:p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
-              <div className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} gap-8 items-center`}>
-                {/* Text Content */}
-                <div className={`flex-1 ${index % 2 === 1 ? 'md:pr-8' : ''}`}>
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl">{service.icon}</span>
-                    <div>
-                      <h2 className="text-2xl font-bold text-white">{service.title}</h2>
-                      <p className="text-cyan-400 font-semibold text-sm">{service.price}</p>
-                    </div>
-                  </div>
-                  <p className="text-zinc-300 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-zinc-400">
-                        <span className="text-cyan-400">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <ShinyButton href="/contact" className="text-sm">
-                    Solicitar Cotización
-                  </ShinyButton>
-                </div>
-                {/* Image */}
-                <div className={`relative w-full md:w-80 aspect-video flex-shrink-0 rounded-xl overflow-hidden group ${index % 2 === 1 ? 'md:pl-8' : ''}`}>
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 320px"
-                    priority={index === 0}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
+            <div
+              key={service.id}
+              className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl p-8 hover:border-cyan-500/30 transition-all duration-500 overflow-hidden"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 to-zinc-900/40" />
               </div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                {/* Number + Tagline */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-6xl font-black text-cyan-500/20 group-hover:text-cyan-500/40 transition-colors duration-500">
+                    {service.number}
+                  </span>
+                  <span className="text-xs font-medium tracking-widest uppercase text-cyan-400/60">
+                    {service.tagline}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-cyan-100 transition-colors">
+                  {service.title}
+                </h2>
+
+                {/* Description */}
+                <p className="text-zinc-400 mb-6 leading-relaxed group-hover:text-zinc-300 transition-colors">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-8">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 text-zinc-500 group-hover:text-zinc-300 transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 group-hover:bg-cyan-400 transition-colors" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <ShinyButton href="/contact" variant="outline" className="text-sm group-hover:border-cyan-400 group-hover:text-cyan-300 transition-all">
+                  Explorar →
+                </ShinyButton>
+              </div>
+
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 bg-gradient-to-b from-black to-zinc-950 relative z-10">
+      <section className="py-24 px-8 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">¿Listo para Transformar Tu Negocio?</h2>
-          <p className="text-zinc-400 mb-8 text-lg">Agenda una llamada y descubre cómo la IA puede ayudarte.</p>
+          <h2 className="text-4xl font-bold mb-4">¿Listo para transformar tu negocio?</h2>
+          <p className="text-zinc-500 mb-8 text-lg">Agenda una llamada y descubre cómo la IA puede ayudarte.</p>
           <div className="flex gap-4 justify-center flex-wrap">
             <ShinyButton href="/contact">
               Agenda Llamada
