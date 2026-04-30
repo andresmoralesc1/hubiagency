@@ -7,9 +7,7 @@ export function MicroInteractions() {
   const pathname = usePathname();
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorVisible, setCursorVisible] = useState(false);
-  const [trailPositions, setTrailPositions] = useState<Array<{ x: number; y: number }>>([]);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const trailRef = useRef<Array<{ x: number; y: number }>>([]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -29,9 +27,6 @@ export function MicroInteractions() {
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
       setCursorVisible(true);
-
-      trailRef.current = [{ x: e.clientX, y: e.clientY }, ...trailRef.current.slice(0, 8)];
-      setTrailPositions([...trailRef.current]);
     };
 
     const handleMouseLeave = () => {
@@ -51,29 +46,15 @@ export function MicroInteractions() {
 
   return (
     <>
-      {/* Cursor trail */}
-      {cursorVisible && (
-        <div className="fixed inset-0 pointer-events-none z-[9999]">
-          {trailPositions.map((pos, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 rounded-full bg-cyan-400/30"
-              style={{
-                left: pos.x,
-                top: pos.y,
-                transform: "translate(-50%, -50%)",
-                opacity: (1 - i * 0.12),
-                width: `${8 - i}px`,
-                height: `${8 - i}px`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Main cursor dot */}
+      {/* Page transition overlay */}
       <div
-        className={`fixed z-[10000] pointer-events-none transition-opacity duration-200 ${
+        key={pathname}
+        className="fixed inset-0 bg-cyan-400 z-[9998] animate-page-out"
+      />
+
+      {/* Main cursor dot - follows mouse immediately */}
+      <div
+        className={`fixed z-[10000] pointer-events-none transition-opacity duration-150 ${
           cursorVisible ? "opacity-100" : "opacity-0"
         }`}
         style={{
@@ -87,12 +68,6 @@ export function MicroInteractions() {
           <div className="w-3 h-3 bg-cyan-400 rounded-full" />
         </div>
       </div>
-
-      {/* Page transition overlay */}
-      <div
-        key={pathname}
-        className="fixed inset-0 bg-cyan-400 z-[9998] animate-page-out"
-      />
     </>
   );
 }

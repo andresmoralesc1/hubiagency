@@ -35,7 +35,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
-              src="/Media/Logo.png"
+              src="/Logo.png"
               alt="Hubiagency"
               className="h-8 w-auto"
             />

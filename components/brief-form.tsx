@@ -112,7 +112,7 @@ export function BriefForm() {
       </header>
 
       {/* Progress bar */}
-      <div className="fixed top-[57px] left-0 right-0 h-1 bg-zinc-900 z-50">
+      <div className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-900 z-50">
         <div
           className="h-full bg-cyan-500 transition-all duration-300"
           style={{ width: `${((step + 1) / totalSteps) * 100}%` }}

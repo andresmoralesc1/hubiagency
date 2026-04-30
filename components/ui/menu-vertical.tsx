@@ -41,7 +41,7 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
               <div className="flex items-center justify-between mb-8">
                 <Link href="/" className="flex items-center" onClick={onClose}>
                   <img
-                    src="/Media/Logo.png"
+                    src="/Logo.png"
                     alt="Hubiagency"
                     className="h-8 w-auto"
                   />
