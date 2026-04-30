@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
+import { CyanFlowShader } from "@/components/ui/cyan-flow-shader";
 
 
 const services = [
@@ -52,10 +53,9 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-8 relative z-10">
-        {/* Subtle orbs */}
+        {/* Cyan flow shader background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-cyan-400/5 blur-2xl animate-pulse-slow" style={{animationDelay: '1s'}} />
+          <CyanFlowShader />
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative">
