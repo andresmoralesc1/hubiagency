@@ -9,7 +9,7 @@ const services = [
     title: "Workflow Automation",
     description: "Elimina tareas repetitivas y optimiza tus operaciones con automatización inteligente. Analizamos tus procesos existentes e implementamos soluciones que ahorran tiempo y reducen errores.",
     features: ["Mapeo y optimización de procesos", "Flujos de trabajo de automatización personalizados", "Integración con herramientas existentes", "Monitoreo y mejora continua"],
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
     imageAlt: "Automatización de flujo de trabajo con tecnología moderna"
   },
   {
@@ -18,7 +18,7 @@ const services = [
     title: "AI Chatbots",
     description: "Implementa IA conversacional inteligente que mejora el engagement del cliente y proporciona soporte 24/7. Nuestros chatbots entienden contexto y ofrecen experiencias personalizadas.",
     features: ["Desarrollo de chatbots personalizados", "Despliegue multi-canal", "Procesamiento de lenguaje natural", "Análisis e insights"],
-    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
     imageAlt: "Chatbot con IA conversacional"
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: "Custom AI Development",
     description: "Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos. Desde análisis predictivo hasta visión por computadora, llevamos IA de vanguardia a tu industria.",
     features: ["Desarrollo de modelos personalizados", "Arquitectura de pipelines de datos", "Integración y despliegue de APIs", "Aprendizaje continuo y actualizaciones"],
-    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg",
     imageAlt: "Desarrollo de inteligencia artificial personalizada"
   },
   {
@@ -36,7 +36,7 @@ const services = [
     title: "AI Consulting",
     description: "Guía estratégica para ayudarte a navegar el panorama de la IA y tomar decisiones informadas sobre inversiones tecnológicas que generan valor real de negocio.",
     features: ["Evaluación de preparación para IA", "Recomendaciones de stack tecnológico", "Análisis de ROI y planificación", "Hojas de ruta de implementación"],
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
     imageAlt: "Consultoría en inteligencia artificial"
   }
 ];
