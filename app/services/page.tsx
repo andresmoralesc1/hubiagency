@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
-import DataGridHero from "@/components/ui/data-grid-hero";
+import MiniGlow from "@/components/ui/mini-glow";
 
 const services = [
   {
@@ -50,18 +50,9 @@ export default function ServicesPage() {
 
       <Header />
 
-      {/* Hero Section with minimalist DataGridHero */}
+      {/* Hero Section with minimalist MiniGlow */}
       <section className="relative">
-        <DataGridHero
-          rows={15}
-          cols={25}
-          spacing={6}
-          opacityMin={0.03}
-          opacityMax={0.15}
-          pulseEffect={true}
-          mouseGlow={false}
-          background="transparent"
-        />
+        <MiniGlow cellCount={20} opacityMin={0.15} opacityMax={0.6} />
         <div className="absolute inset-0 pt-32 pb-24 px-8 z-10">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 animate-pulse-slow">
