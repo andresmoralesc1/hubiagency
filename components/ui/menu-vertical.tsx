@@ -62,10 +62,10 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
                     key={link.href}
                     href={link.href}
                     onClick={onClose}
-                    className={`group flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 ${
+                    className={`group flex items-center justify-between px-4 py-3 transition-all duration-200 ${
                       pathname === link.href
-                        ? "text-cyan-400 bg-cyan-500/10"
-                        : "text-white/70 hover:text-white hover:bg-cyan-500/10"
+                        ? "text-cyan-400 underline underline-offset-4"
+                        : "text-white/70 hover:text-white"
                     }`}
                   >
                     <span className="font-medium">{link.label}</span>

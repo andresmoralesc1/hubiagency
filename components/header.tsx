@@ -47,10 +47,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-xl ${
+                className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
                   pathname === link.href
-                    ? "text-cyan-600 bg-cyan-500/20"
-                    : "text-zinc-700 hover:text-cyan-600 hover:bg-cyan-500/10"
+                    ? "text-cyan-600 underline underline-offset-4"
+                    : "text-zinc-600 hover:text-cyan-500"
                 }`}
               >
                 {link.label}
