@@ -97,7 +97,7 @@ export default function ServicesPage() {
                   </ShinyButton>
                 </div>
                 {/* Image */}
-                <div className={`relative w-full md:w-80 h-56 flex-shrink-0 rounded-xl overflow-hidden group ${index % 2 === 1 ? 'md:pl-8' : ''}`}>
+                <div className={`relative w-full md:w-80 aspect-video flex-shrink-0 rounded-xl overflow-hidden group ${index % 2 === 1 ? 'md:pl-8' : ''}`}>
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
