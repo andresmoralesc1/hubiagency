@@ -580,3 +580,13 @@ html {
 .link-underline:hover::after {
   width: 100%;
 }
+
+/* ===== CYAN FLOW ===== */
+@keyframes flow-slow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-flow-slow {
+  animation: flow-slow 8s linear infinite;
+}
