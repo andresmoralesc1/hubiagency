@@ -1,5 +1,45 @@
+import Image from "next/image";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
+
+const services = [
+  {
+    id: "automation",
+    icon: "⚡",
+    title: "Workflow Automation",
+    description: "Elimina tareas repetitivas y optimiza tus operaciones con automatización inteligente. Analizamos tus procesos existentes e implementamos soluciones que ahorran tiempo y reducen errores.",
+    features: ["Mapeo y optimización de procesos", "Flujos de trabajo de automatización personalizados", "Integración con herramientas existentes", "Monitoreo y mejora continua"],
+    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    imageAlt: "Automatización de flujo de trabajo con tecnología moderna"
+  },
+  {
+    id: "chatbots",
+    icon: "🤖",
+    title: "AI Chatbots",
+    description: "Implementa IA conversacional inteligente que mejora el engagement del cliente y proporciona soporte 24/7. Nuestros chatbots entienden contexto y ofrecen experiencias personalizadas.",
+    features: ["Desarrollo de chatbots personalizados", "Despliegue multi-canal", "Procesamiento de lenguaje natural", "Análisis e insights"],
+    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    imageAlt: "Chatbot con IA conversacional"
+  },
+  {
+    id: "custom-ai",
+    icon: "🧠",
+    title: "Custom AI Development",
+    description: "Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos. Desde análisis predictivo hasta visión por computadora, llevamos IA de vanguardia a tu industria.",
+    features: ["Desarrollo de modelos personalizados", "Arquitectura de pipelines de datos", "Integración y despliegue de APIs", "Aprendizaje continuo y actualizaciones"],
+    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    imageAlt: "Desarrollo de inteligencia artificial personalizada"
+  },
+  {
+    id: "consulting",
+    icon: "💼",
+    title: "AI Consulting",
+    description: "Guía estratégica para ayudarte a navegar el panorama de la IA y tomar decisiones informadas sobre inversiones tecnológicas que generan valor real de negocio.",
+    features: ["Evaluación de preparación para IA", "Recomendaciones de stack tecnológico", "Análisis de ROI y planificación", "Hojas de ruta de implementación"],
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200",
+    imageAlt: "Consultoría en inteligencia artificial"
+  }
+];
 
 export default function ServicesPage() {
   return (
@@ -24,86 +64,35 @@ export default function ServicesPage() {
 
       {/* Services List */}
       <section className="py-16 px-8 relative z-10">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Workflow Automation */}
-          <div className="glass-dark p-8 rounded-2xl card-hover border-glow">
-            <div className="flex items-start gap-4">
-              <div className="text-4xl float">⚡</div>
-              <div>
-                <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">Workflow Automation</h2>
-                <p className="text-zinc-400 mb-4">
-                  Elimina tareas repetitivas y optimiza tus operaciones con automatización inteligente.
-                  Analizamos tus procesos existentes e implementamos soluciones que ahorran tiempo y reducen errores.
-                </p>
-                <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Mapeo y optimización de procesos</li>
-                  <li className="animate-fade-in-left delay-200">• Flujos de trabajo de automatización personalizados</li>
-                  <li className="animate-fade-in-left delay-300">• Integración con herramientas existentes</li>
-                  <li className="animate-fade-in-left delay-400">• Monitoreo y mejora continua</li>
-                </ul>
+        <div className="max-w-4xl mx-auto space-y-24">
+          {services.map((service, index) => (
+            <div key={service.id} className={`glass-dark p-6 md:p-8 rounded-2xl card-hover border-glow ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className={`flex-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <div className="text-4xl float mb-4">{service.icon}</div>
+                  <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">{service.title}</h2>
+                  <p className="text-zinc-400 mb-4">
+                    {service.description}
+                  </p>
+                  <ul className="text-zinc-400 space-y-2">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="animate-fade-in-left" style={{animationDelay: `${i * 100}ms`}}>• {feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={`relative w-full md:w-72 h-52 flex-shrink-0 rounded-xl overflow-hidden ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 288px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* AI Chatbots */}
-          <div className="glass-dark p-8 rounded-2xl card-hover border-glow">
-            <div className="flex items-start gap-4">
-              <div className="text-4xl float" style={{animationDelay: '0.5s'}}>🤖</div>
-              <div>
-                <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">AI Chatbots</h2>
-                <p className="text-zinc-400 mb-4">
-                  Implementa IA conversacional inteligente que mejora el engagement del cliente y proporciona soporte 24/7.
-                  Nuestros chatbots entienden contexto y ofrecen experiencias personalizadas.
-                </p>
-                <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Desarrollo de chatbots personalizados</li>
-                  <li className="animate-fade-in-left delay-200">• Despliegue multi-canal</li>
-                  <li className="animate-fade-in-left delay-300">• Procesamiento de lenguaje natural</li>
-                  <li className="animate-fade-in-left delay-400">• Análisis e insights</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Custom AI Development */}
-          <div className="glass-dark p-8 rounded-2xl card-hover border-glow">
-            <div className="flex items-start gap-4">
-              <div className="text-4xl float" style={{animationDelay: '1s'}}>🧠</div>
-              <div>
-                <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">Custom AI Development</h2>
-                <p className="text-zinc-400 mb-4">
-                  Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos.
-                  Desde análisis predictivo hasta visión por computadora, llevamos IA de vanguardia a tu industria.
-                </p>
-                <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Desarrollo de modelos personalizados</li>
-                  <li className="animate-fade-in-left delay-200">• Arquitectura de pipelines de datos</li>
-                  <li className="animate-fade-in-left delay-300">• Integración y despliegue de APIs</li>
-                  <li className="animate-fade-in-left delay-400">• Aprendizaje continuo y actualizaciones</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Consulting */}
-          <div className="glass-dark p-8 rounded-2xl card-hover border-glow">
-            <div className="flex items-start gap-4">
-              <div className="text-4xl float" style={{animationDelay: '1.5s'}}>💼</div>
-              <div>
-                <h2 className="text-2xl font-semibold mb-3 text-gradient-cyan">AI Consulting</h2>
-                <p className="text-zinc-400 mb-4">
-                  Guía estratégica para ayudarte a navegar el panorama de la IA y tomar decisiones informadas
-                  sobre inversiones tecnológicas que generan valor real de negocio.
-                </p>
-                <ul className="text-zinc-400 space-y-2">
-                  <li className="animate-fade-in-left delay-100">• Evaluación de preparación para IA</li>
-                  <li className="animate-fade-in-left delay-200">• Recomendaciones de stack tecnológico</li>
-                  <li className="animate-fade-in-left delay-300">• Análisis de ROI y planificación</li>
-                  <li className="animate-fade-in-left delay-400">• Hojas de ruta de implementación</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
