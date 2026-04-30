@@ -22,7 +22,7 @@ export function Header() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
         {/* Glass container */}
-        <div className="relative mx-auto max-w-5xl flex items-center justify-between px-6 py-3 rounded-2xl bg-gradient-to-r from-white via-cyan-100 to-cyan-200 backdrop-blur-xl border border-white/30 shadow-lg shadow-cyan-500/10">
+        <div className="relative mx-auto max-w-5xl flex items-center justify-between px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-lg">
           {/* Mobile: Hamburger button */}
           <button
             onClick={() => setIsMenuOpen(true)}
