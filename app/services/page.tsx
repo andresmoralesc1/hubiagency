@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
-import MiniGlow from "@/components/ui/mini-glow";
+
 
 const services = [
   {
@@ -50,21 +50,24 @@ export default function ServicesPage() {
 
       <Header />
 
-      {/* Hero Section with minimalist MiniGlow */}
-      <section className="relative">
-        <MiniGlow cellCount={20} opacityMin={0.15} opacityMax={0.6} />
-        <div className="absolute inset-0 pt-32 pb-24 px-8 z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 animate-pulse-slow">
-              Servicios
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-zinc-400 bg-clip-text text-transparent animate-fade-in-up">
-              Soluciones de IA
-            </h1>
-            <p className="text-xl text-zinc-500 max-w-2xl mx-auto animate-fade-in-up delay-200">
-              Transformamos cómo opera tu negocio con automatización inteligente y IA personalizada
-            </p>
-          </div>
+      {/* Hero Section */}
+      <section className="pt-32 pb-24 px-8 relative z-10">
+        {/* Subtle orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-cyan-400/5 blur-2xl animate-pulse-slow" style={{animationDelay: '1s'}} />
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative">
+          <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 animate-pulse-slow">
+            Servicios
+          </p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-zinc-400 bg-clip-text text-transparent animate-fade-in-up">
+            Soluciones de IA
+          </h1>
+          <p className="text-xl text-zinc-500 max-w-2xl mx-auto animate-fade-in-up delay-200">
+            Transformamos cómo opera tu negocio con automatización inteligente y IA personalizada
+          </p>
         </div>
       </section>
 
