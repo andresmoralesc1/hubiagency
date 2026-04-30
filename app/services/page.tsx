@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
+import DataGridHero from "@/components/ui/data-grid-hero";
 
 const services = [
   {
@@ -49,18 +50,30 @@ export default function ServicesPage() {
 
       <Header />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-24 px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 animate-pulse-slow">
-            Servicios
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-zinc-400 bg-clip-text text-transparent animate-fade-in-up">
-            Soluciones de IA
-          </h1>
-          <p className="text-xl text-zinc-500 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Transformamos cómo opera tu negocio con automatización inteligente y IA personalizada
-          </p>
+      {/* Hero Section with minimalist DataGridHero */}
+      <section className="relative">
+        <DataGridHero
+          rows={15}
+          cols={25}
+          spacing={6}
+          opacityMin={0.03}
+          opacityMax={0.15}
+          pulseEffect={true}
+          mouseGlow={false}
+          background="transparent"
+        />
+        <div className="absolute inset-0 pt-32 pb-24 px-8 z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 animate-pulse-slow">
+              Servicios
+            </p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-zinc-400 bg-clip-text text-transparent animate-fade-in-up">
+              Soluciones de IA
+            </h1>
+            <p className="text-xl text-zinc-500 max-w-2xl mx-auto animate-fade-in-up delay-200">
+              Transformamos cómo opera tu negocio con automatización inteligente y IA personalizada
+            </p>
+          </div>
         </div>
       </section>
 
