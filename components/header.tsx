@@ -37,7 +37,7 @@ export function Header() {
             <img
               src="/Logo.png"
               alt="Hubiagency"
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto drop-shadow-md"
             />
           </Link>
 
