@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 import { CyanFlowShader } from "@/components/ui/cyan-flow-shader";
@@ -75,10 +76,11 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-16 px-4 md:px-8 relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 stagger-children">
-          {services.map((service, index) => (
-            <div
+          {services.map((service) => (
+            <Link
               key={service.id}
-              className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl p-8 hover:border-cyan-500/30 transition-all duration-500 overflow-hidden"
+              href={`/services/${service.id}`}
+              className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl p-8 hover:border-cyan-500/30 transition-all duration-500 overflow-hidden block"
             >
               {/* Background Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
@@ -124,14 +126,14 @@ export default function ServicesPage() {
                 </ul>
 
                 {/* CTA */}
-                <ShinyButton href="/contact" variant="outline" className="text-sm group-hover:border-cyan-400 group-hover:text-cyan-300 transition-all">
+                <ShinyButton href={`/services/${service.id}`} variant="outline" className="text-sm group-hover:border-cyan-400 group-hover:text-cyan-300 transition-all">
                   Explorar →
                 </ShinyButton>
               </div>
 
               {/* Hover glow */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
+            </Link>
           ))}
         </div>
       </section>
