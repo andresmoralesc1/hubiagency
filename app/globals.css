@@ -590,3 +590,10 @@ html {
 .animate-flow-slow {
   animation: flow-slow 8s linear infinite;
 }
+
+/* ===== RIPPLE ===== */
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+.ripple-effect { position: relative; overflow: hidden; }
