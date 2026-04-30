@@ -24,7 +24,7 @@ export default function Home() {
         <h1 className="text-6xl md:text-8xl font-black tracking-widest uppercase text-white drop-shadow-[0_0_40px_rgba(0,212,255,0.6)]">
           HUBIAGENCY
         </h1>
-        <p className="text-base md:text-lg text-white/95 tracking-widest uppercase border border-white/20 px-4 py-2 bg-white/5 backdrop-blur-sm mt-4">
+        <p className="text-base md:text-lg text-white/95 tracking-widest uppercase border border-white/20 px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm mt-4">
           Automatizar • Innovar • Elevar
         </p>
         <div className="mt-12 flex gap-4 flex-wrap justify-center">
@@ -50,19 +50,19 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 stagger-children">
-            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+            <Link href="/services" className="group glass-dark p-8 rounded-xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float">⚡</div>
               <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Automatización de Flujos de Trabajo</h3>
               <p className="text-zinc-400">Optimiza operaciones y elimina tareas repetitivas con soluciones de automatización inteligente.</p>
             </Link>
 
-            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+            <Link href="/services" className="group glass-dark p-8 rounded-xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.3s'}}>🤖</div>
               <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Chatbots con IA</h3>
               <p className="text-zinc-400">Implementa IA conversacional inteligente que mejora el engagement y soporte al cliente.</p>
             </Link>
 
-            <Link href="/services" className="group glass-dark p-8 rounded-2xl card-hover border-glow">
+            <Link href="/services" className="group glass-dark p-8 rounded-xl card-hover border-glow">
               <div className="text-cyan-400 text-4xl mb-4 float" style={{animationDelay: '0.6s'}}>🧠</div>
               <h3 className="text-xl font-semibold mb-2 group-hover:text-gradient-cyan transition-all">Desarrollo de IA Personalizada</h3>
               <p className="text-zinc-400">Construye soluciones de IA adaptadas específicamente para tus desafíos de negocio únicos.</p>
@@ -90,22 +90,22 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 stagger-children">
-            <div className="text-center glass-dark p-6 rounded-2xl">
+            <div className="text-center glass-dark p-6 rounded-xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">50+</div>
               <h3 className="font-semibold mb-2">Proyectos Entregados</h3>
               <p className="text-zinc-400 text-sm">En diversas industrias y casos de uso</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
+            <div className="text-center glass-dark p-6 rounded-xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">85%</div>
               <h3 className="font-semibold mb-2">Reducción de Costos</h3>
               <p className="text-zinc-400 text-sm">Ahorro promedio en costos operativos</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
+            <div className="text-center glass-dark p-6 rounded-xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">24/7</div>
               <h3 className="font-semibold mb-2">Disponibilidad de IA 24/7</h3>
               <p className="text-zinc-400 text-sm">Operaciones automatizadas continuas</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
+            <div className="text-center glass-dark p-6 rounded-xl">
               <div className="text-cyan-400 text-5xl mb-4 font-bold">100%</div>
               <h3 className="font-semibold mb-2">Satisfacción del Cliente</h3>
               <p className="text-zinc-400 text-sm">Soporte y seguimiento dedicado</p>
@@ -156,23 +156,23 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 stagger-children">
-            <div className="text-center glass-dark p-6 rounded-2xl">
-              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">1</div>
+            <div className="text-center glass-dark p-6 rounded-xl">
+              <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">1</div>
               <h3 className="font-semibold mb-2">Descubrimiento</h3>
               <p className="text-zinc-400 text-sm">Entendiendo tus necesidades y objetivos</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
-              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">2</div>
+            <div className="text-center glass-dark p-6 rounded-xl">
+              <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">2</div>
               <h3 className="font-semibold mb-2">Estrategia</h3>
               <p className="text-zinc-400 text-sm">Diseñando la solución óptima</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
-              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">3</div>
+            <div className="text-center glass-dark p-6 rounded-xl">
+              <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">3</div>
               <h3 className="font-semibold mb-2">Implementación</h3>
               <p className="text-zinc-400 text-sm">Construyendo y probando tu solución</p>
             </div>
-            <div className="text-center glass-dark p-6 rounded-2xl">
-              <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">4</div>
+            <div className="text-center glass-dark p-6 rounded-xl">
+              <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mx-auto mb-4 neon-border">4</div>
               <h3 className="font-semibold mb-2">Soporte</h3>
               <p className="text-zinc-400 text-sm">Optimización y ayuda continua</p>
             </div>
