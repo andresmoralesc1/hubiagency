@@ -22,11 +22,11 @@ export function Header() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
         {/* Glass container */}
-        <div className="relative mx-auto max-w-5xl flex items-center justify-between px-6 py-3 rounded-2xl bg-white/5 backdrop-blur-2xl border border-transparent bg-gradient-to-r from-cyan-500/20 to-blue-500/20 shadow-lg shadow-cyan-500/10 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-r before:from-cyan-500/30 before:to-blue-500/30 before:-z-10">
+        <div className="relative mx-auto max-w-5xl flex items-center justify-between px-6 py-3 rounded-2xl bg-gradient-to-r from-white/80 to-cyan-400/50 backdrop-blur-2xl border border-white/20 shadow-lg shadow-cyan-500/10">
           {/* Mobile: Hamburger button */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="p-2 text-white hover:text-white md:hidden"
+            className="p-2 text-zinc-700 hover:text-cyan-600 md:hidden"
             aria-label="Open menu"
           >
             <Menu className="size-5" />
@@ -37,7 +37,7 @@ export function Header() {
             <img
               src="/Logo.png"
               alt="Hubiagency"
-              className="h-10 w-auto p-1 border border-white/30 rounded-lg bg-white/10"
+              className="h-10 w-auto brightness-0 invert"
             />
           </Link>
 
@@ -49,8 +49,8 @@ export function Header() {
                 href={link.href}
                 className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-xl ${
                   pathname === link.href
-                    ? "text-cyan-400 bg-cyan-500/10"
-                    : "text-white/50 hover:text-white hover:bg-white/5"
+                    ? "text-cyan-600 bg-cyan-500/20"
+                    : "text-zinc-700 hover:text-cyan-600 hover:bg-cyan-500/10"
                 }`}
               >
                 {link.label}

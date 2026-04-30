@@ -43,7 +43,7 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
                   <img
                     src="/Logo.png"
                     alt="Hubiagency"
-                    className="h-10 w-auto p-1 border border-white/30 rounded-lg bg-white/10"
+                    className="h-10 w-auto brightness-0 invert"
                   />
                 </Link>
                 <button
