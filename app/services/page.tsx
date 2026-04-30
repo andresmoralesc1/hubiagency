@@ -97,7 +97,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-8 border-t border-zinc-800 relative z-10">
+      <section className="py-16 px-8 bg-zinc-950/50 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">¿Listo para Comenzar?</h2>
           <p className="text-zinc-400 mb-8 animate-fade-in-up delay-100">Explora nuestros servicios de IA o programa una consulta.</p>
