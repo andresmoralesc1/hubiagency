@@ -75,12 +75,12 @@ const fragmentShaderSource = `
     float mouseInfluence = smoothstep(0.4, 0.0, mouseDist) * 0.3;
     color += vec3(0.2, 0.5, 0.6) * mouseInfluence;
 
-    // Increased glow for visibility
-    float glow = 0.3 + flow * 0.25 + n3 * 0.15;
+    // Increased glow for visibility - much brighter
+    float glow = 0.6 + flow * 0.5 + n3 * 0.3;
     color *= glow;
 
-    // Add subtle base brightness so it's never completely black
-    color += vec3(0.03, 0.08, 0.1);
+    // Add base brightness so it's never completely black
+    color += vec3(0.1, 0.2, 0.25);
 
     gl_FragColor = vec4(color, 1.0);
   }
