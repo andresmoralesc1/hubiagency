@@ -66,18 +66,21 @@ const fragmentShaderSource = `
     vec3 cyan2 = vec3(0.5, 0.8, 0.7);   // hsl(190, 70%, 55%)
     vec3 cyan3 = vec3(0.6, 0.6, 0.5);   // hsl(200, 50%, 45%)
 
-    // Mix colors based on noise
+    // Mix colors based on noise - more vibrant
     vec3 color = mix(cyan1, cyan2, flow);
     color = mix(color, cyan3, n3 * 0.3 + 0.2);
 
     // Subtle mouse interaction
     float mouseDist = length(uv - u_mouse);
-    float mouseInfluence = smoothstep(0.3, 0.0, mouseDist) * 0.15;
-    color += vec3(0.1, 0.2, 0.25) * mouseInfluence;
+    float mouseInfluence = smoothstep(0.4, 0.0, mouseDist) * 0.3;
+    color += vec3(0.2, 0.5, 0.6) * mouseInfluence;
 
-    // Glow intensity
-    float glow = 0.08 + flow * 0.06 + n3 * 0.02;
+    // Increased glow for visibility
+    float glow = 0.3 + flow * 0.25 + n3 * 0.15;
     color *= glow;
+
+    // Add subtle base brightness so it's never completely black
+    color += vec3(0.03, 0.08, 0.1);
 
     gl_FragColor = vec4(color, 1.0);
   }
