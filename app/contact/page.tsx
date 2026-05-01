@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { Header } from "@/components/header";
-import { ShinyButton } from "@/components/ui/shiny-button";
+import { ContactCard } from "@/components/ui/contact-card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { MailIcon, PhoneIcon, MapPinIcon } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,7 +24,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError(""); // Clear error on submit
+    setError("");
     setSuccess(false);
 
     try {
@@ -51,80 +56,77 @@ export default function ContactPage() {
     <div className="min-h-screen bg-black text-white">
       <Header />
 
-      {/* Hero Section */}
+      {/* Contact Card Section */}
       <section className="pt-24 md:pt-32 pb-16 px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6">
-            Ponerse en Contacto
-          </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            ¿Listo para transformar tu negocio con IA? Comencemos la conversación.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-16 px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Nombre *
-                </label>
-                <input
-                  type="text"
+        <div className="max-w-5xl mx-auto">
+          <ContactCard
+            title="Get in touch"
+            description="Si tienes preguntas sobre nuestros servicios o necesitas ayuda, completa el formulario. Respondemos en 24 horas."
+            contactInfo={[
+              {
+                icon: MailIcon,
+                label: 'Email',
+                value: 'hello@hubiagency.com',
+              },
+              {
+                icon: PhoneIcon,
+                label: 'WhatsApp',
+                value: '+57 324 542 5387',
+              },
+              {
+                icon: MapPinIcon,
+                label: 'Ubicación',
+                value: 'Bogotá, Colombia',
+              }
+            ]}
+          >
+            <form onSubmit={handleSubmit} className="w-full space-y-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="name" className="text-zinc-300">Nombre</Label>
+                <Input
                   id="name"
                   name="name"
+                  type="text"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
                   placeholder="Tu nombre"
+                  className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
                 />
               </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="email" className="text-zinc-300">Email</Label>
+                <Input
                   id="email"
                   name="email"
+                  type="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
                   placeholder="tu@email.com"
+                  className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
                 />
               </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium mb-2">
-                  Empresa
-                </label>
-                <input
-                  type="text"
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="company" className="text-zinc-300">Empresa</Label>
+                <Input
                   id="company"
                   name="company"
+                  type="text"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
                   placeholder="Nombre de tu empresa"
+                  className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
                 />
               </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium mb-2">
-                  Servicio de Interés
-                </label>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="service" className="text-zinc-300">Servicio</Label>
                 <select
                   id="service"
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors"
+                  className="flex h-10 w-full rounded-md border border-input bg-zinc-900 px-3 py-2 text-sm ring-offset-background text-white placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
                 >
                   <option value="">Selecciona un servicio</option>
                   <option value="workflow">Automatización de Flujos de Trabajo</option>
@@ -134,53 +136,40 @@ export default function ContactPage() {
                   <option value="other">Otro</option>
                 </select>
               </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Mensaje *
-                </label>
-                <textarea
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="message" className="text-zinc-300">Mensaje</Label>
+                <Textarea
                   id="message"
                   name="message"
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors resize-none"
-                  placeholder="Cuéntanos sobre tu proyecto o consulta..."
+                  placeholder="Cuéntanos sobre tu proyecto..."
+                  className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600 min-h-[80px]"
                 />
               </div>
 
               {success && (
-                <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400">
+                <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm">
                   ¡Mensaje enviado! Nos pondremos en contacto dentro de 24 horas.
                 </div>
               )}
 
               {error && (
-                <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400">
+                <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm">
                   {error}
                 </div>
               )}
 
-              <button
+              <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition-colors disabled:opacity-50"
+                className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold"
               >
                 {isLoading ? "Enviando..." : "Enviar Mensaje"}
-              </button>
+              </Button>
             </form>
-
-            <div className="mt-8 pt-8 border-t border-zinc-800">
-              <p className="text-center text-zinc-400 mb-4">O contáctanos directamente</p>
-              <div className="flex justify-center gap-6 text-sm">
-                <ShinyButton href="mailto:hello@hubiagency.com" variant="outline">
-                  hello@hubiagency.com
-                </ShinyButton>
-              </div>
-            </div>
-          </div>
+          </ContactCard>
         </div>
       </section>
 
