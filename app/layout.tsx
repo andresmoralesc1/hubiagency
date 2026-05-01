@@ -5,6 +5,7 @@ import { MicroInteractions } from "@/components/micro-interactions";
 import { LoadingProvider } from "@/components/ui/loading-provider";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { ChatAIButton } from "@/components/ui/chat-ai-button";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -64,11 +65,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <LoadingProvider>
-          <WhatsAppButton />
-          <ChatAIButton />
-          <MicroInteractions />
-          {children}
-          <Footer />
+          <CartProvider>
+            <WhatsAppButton />
+            <ChatAIButton />
+            <MicroInteractions />
+            {children}
+            <Footer />
+          </CartProvider>
         </LoadingProvider>
       </body>
     </html>
