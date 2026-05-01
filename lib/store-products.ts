@@ -5,7 +5,7 @@ export const storeProducts = [
     description: "Workflow completo en n8n para capturar, cualificar y almacenar leads desde múltiples fuentes. Incluye integración con CRM y notificaciones.",
     price: 299,
     currency: "USD",
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=format&fit=crop&w=600&q=80",
     category: "automatizacion",
     paymentLinks: {
       paypal: "https://paypal.com/checkout",
@@ -20,7 +20,7 @@ export const storeProducts = [
     description: "Agente conversacional inteligente basado en LangChain y OpenAI, desplegado localmente con Ollama.",
     price: 899,
     currency: "USD",
-    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=format&fit=crop&w=600&q=80",
     category: "ia",
     paymentLinks: {
       paypal: "https://paypal.com/checkout",
@@ -35,7 +35,7 @@ export const storeProducts = [
     description: "Sistema RAG para analizar contratos, facturas y documentos legales con embeddings locales.",
     price: 1199,
     currency: "USD",
-    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.pexels.com/photos/4223082/pexels-photo-4223082.jpeg?auto=format&fit=crop&w=600&q=80",
     category: "ia",
     paymentLinks: {
       paypal: "https://paypal.com/checkout",
@@ -50,7 +50,7 @@ export const storeProducts = [
     description: "Agente de IA local que consulta bases de datos y presenta insights en dashboard en tiempo real.",
     price: 199,
     currency: "USD",
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.pexels.com/photos/7567479/pexels-photo-7567479.jpeg?auto=format&fit=crop&w=600&q=80",
     category: "dashboard",
     paymentLinks: {
       paypal: "https://paypal.com/checkout",
@@ -65,7 +65,7 @@ export const storeProducts = [
     description: "Sesión de consultoría estratégica de 2 horas para diseñar roadmap de implementación de IA.",
     price: 399,
     currency: "USD",
-    image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=format&fit=crop&w=600&q=80",
     category: "consultoria",
     paymentLinks: {
       paypal: "https://paypal.com/checkout",
