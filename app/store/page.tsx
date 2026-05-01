@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { Header } from "@/components/header";
 import { FloatingCart } from "@/components/store/floating-cart";
 import { storeProducts, type StoreProduct } from "@/lib/store-products";
@@ -57,6 +58,7 @@ export default function StorePage() {
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [purchaseSuccess, setPurchaseSuccess] = useState<string | null>(null);
   const { addItem } = useCart();
 
   const filteredProducts = useMemo(() => {
@@ -79,14 +81,46 @@ export default function StorePage() {
   };
 
   const handleBuyClick = () => {
+    setPurchaseSuccess(selectedProduct?.id || null);
     setShowDetailModal(false);
     setShowPaymentModal(true);
   };
+
+  const currentIndex = selectedProduct ? storeProducts.findIndex(p => p.id === selectedProduct.id) : -1;
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < storeProducts.length - 1;
+
+  const handlePrevProduct = () => {
+    if (hasPrev) setSelectedProduct(storeProducts[currentIndex - 1]);
+  };
+
+  const handleNextProduct = () => {
+    if (hasNext) setSelectedProduct(storeProducts[currentIndex + 1]);
+  };
+
+  useEffect(() => {
+    if (purchaseSuccess) {
+      const timer = setTimeout(() => setPurchaseSuccess(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [purchaseSuccess]);
 
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
       <FloatingCart />
+
+      {/* Purchase Success Animation */}
+      {purchaseSuccess && (
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 animate-in slide-in-from-top-4 duration-300">
+          <div className="flex items-center gap-3 px-6 py-4 bg-green-500/90 backdrop-blur-sm rounded-2xl shadow-2xl shadow-green-500/30">
+            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <Check className="w-5 h-5 text-white" />
+            </div>
+            <span className="font-semibold text-white">¡Producto añadido!</span>
+          </div>
+        </div>
+      )}
 
       {/* Breadcrumbs */}
       <nav className="pt-24 px-8 max-w-6xl mx-auto">
@@ -260,6 +294,50 @@ export default function StorePage() {
         </div>
       </section>
 
+      {/* Trust Badges */}
+      <section className="py-12 px-8 border-t border-zinc-800/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex flex-col items-center text-center p-6 bg-zinc-900/30 rounded-2xl border border-zinc-800/50">
+              <div className="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center mb-3">
+                <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold text-sm mb-1">Pago Seguro</h4>
+              <p className="text-xs text-zinc-500">Encriptación SSL 256-bit</p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 bg-zinc-900/30 rounded-2xl border border-zinc-800/50">
+              <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mb-3">
+                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <h4 className="font-semibold text-sm mb-1">Garantía 7 días</h4>
+              <p className="text-xs text-zinc-500">Devolución sin preguntas</p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 bg-zinc-900/30 rounded-2xl border border-zinc-800/50">
+              <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mb-3">
+                <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold text-sm mb-1">Soporte 24/7</h4>
+              <p className="text-xs text-zinc-500">Chat y WhatsApp</p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 bg-zinc-900/30 rounded-2xl border border-zinc-800/50">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mb-3">
+                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold text-sm mb-1">Entrega Rápida</h4>
+              <p className="text-xs text-zinc-500">Máximo 14 días</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Product Detail Modal */}
       {showDetailModal && selectedProduct && (
         <div
@@ -267,6 +345,28 @@ export default function StorePage() {
           onClick={(e) => e.target === e.currentTarget && setShowDetailModal(false)}
         >
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+            {/* Navigation arrows */}
+            <div className="absolute top-4 left-4 z-10 flex gap-2">
+              <button
+                onClick={handlePrevProduct}
+                disabled={!hasPrev}
+                className={`w-8 h-8 flex items-center justify-center rounded-full transition-all ${
+                  hasPrev ? "bg-zinc-800/80 hover:bg-zinc-700 text-white" : "bg-zinc-800/30 text-zinc-600 cursor-not-allowed"
+                }`}
+              >
+                ←
+              </button>
+              <button
+                onClick={handleNextProduct}
+                disabled={!hasNext}
+                className={`w-8 h-8 flex items-center justify-center rounded-full transition-all ${
+                  hasNext ? "bg-zinc-800/80 hover:bg-zinc-700 text-white" : "bg-zinc-800/30 text-zinc-600 cursor-not-allowed"
+                }`}
+              >
+                →
+              </button>
+            </div>
+
             {/* Close button */}
             <button
               onClick={() => setShowDetailModal(false)}
