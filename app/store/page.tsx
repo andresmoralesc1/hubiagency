@@ -150,7 +150,12 @@ export default function StorePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
 
                 {/* Badges */}
-                <div className="absolute top-3 left-3 flex gap-2">
+                <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
+                  {product.popular && (
+                    <span className="px-2 py-1 bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full text-xs text-yellow-300 uppercase tracking-wider flex items-center gap-1">
+                      <span>★</span> Popular
+                    </span>
+                  )}
                   <span className="px-2 py-1 bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-300 uppercase tracking-wider">
                     {product.category}
                   </span>
@@ -160,6 +165,12 @@ export default function StorePage() {
                       : "bg-cyan-500/20 border-cyan-500/30 text-cyan-300"
                   }`}>
                     {product.price > 200 ? "pago único" : "/mes"}
+                  </span>
+                </div>
+                {/* Delivery time */}
+                <div className="absolute bottom-3 right-3">
+                  <span className="px-2 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs text-zinc-300">
+                    📦 {product.deliveryTime}
                   </span>
                 </div>
               </div>
@@ -185,13 +196,13 @@ export default function StorePage() {
 
                   <div className="flex gap-2">
                     <button
-                      onClick={() => handleAddToCart(product)}
-                      className="flex-1 px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 group/btn"
+                      onClick={() => handleBuyClick()}
+                      className="flex-1 px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
                     >
-                      <svg className="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
-                      Agregar
+                      Adquirir
                     </button>
                     <button
                       onClick={() => handleViewDetails(product)}
@@ -293,27 +304,35 @@ export default function StorePage() {
                 {selectedProduct.description}
               </p>
 
-              {/* Full description would go here */}
+              {/* Features */}
               <div className="bg-zinc-800/50 rounded-2xl p-6 mb-6">
                 <h3 className="font-semibold mb-3 text-cyan-400">¿Qué incluye?</h3>
                 <ul className="space-y-2 text-sm text-zinc-300">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    Implementación completa del servicio
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    Soporte técnico incluido
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    Documentación y guías
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    Entrega en tiempo estimado
-                  </li>
+                  {selectedProduct.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
+              </div>
+
+              {/* Delivery time and price */}
+              <div className="flex items-center justify-between mb-6 p-4 bg-zinc-800/30 rounded-xl border border-zinc-800">
+                <div>
+                  <span className="text-sm text-zinc-500">Precio desde</span>
+                  <p className="text-3xl font-bold text-cyan-400">
+                    {formatPrice(selectedProduct.price, selectedProduct.currency)}
+                  </p>
+                  <p className="text-sm text-zinc-500">
+                    o {formatPrice(selectedProduct.priceCOP, "COP")}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs text-zinc-500 bg-zinc-800 px-3 py-1 rounded-full">
+                    📦 Entrega: {selectedProduct.deliveryTime}
+                  </span>
+                </div>
               </div>
 
               {/* Related Products */}
@@ -363,19 +382,13 @@ export default function StorePage() {
 
               <div className="flex gap-3">
                 <button
-                  onClick={() => handleAddToCart(selectedProduct)}
+                  onClick={() => handleBuyClick()}
                   className="flex-1 px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Agregar al carrito
-                </button>
-                <button
-                  onClick={handleBuyClick}
-                  className="px-6 py-3 border border-cyan-500/50 hover:border-cyan-500 rounded-xl transition-all"
-                >
-                  Comprar ahora
+                  Adquirir ahora
                 </button>
               </div>
             </div>
