@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/header";
@@ -14,11 +14,60 @@ const paymentMethods = [
   { id: "mercadopago", name: "Mercado Pago", icon: "M", color: "bg-yellow-500 hover:bg-yellow-600 text-black" },
 ] as const;
 
+const categories = [
+  { id: "all", name: "Todos", icon: "✨" },
+  { id: "automatizacion", name: "Automatización", icon: "⚡" },
+  { id: "ia", name: "IA", icon: "🤖" },
+  { id: "dashboard", name: "Dashboard", icon: "📊" },
+  { id: "consultoria", name: "Consultoría", icon: "💼" },
+] as const;
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Carlos Mendoza",
+    role: "CEO, TechStart Colombia",
+    avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format&fit=crop&w=100&q=80",
+    text: "La automatización de leads nos ahorró 20 horas semanales. El ROI fue visible en el primer mes.",
+    rating: 5,
+    product: "automatizacion-leads"
+  },
+  {
+    id: 2,
+    name: "María Elena Gómez",
+    role: "Directora de Operaciones, FinanceHub",
+    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=format&fit=crop&w=100&q=80",
+    text: "El chatbot maneja el 80% de las consultas sin intervención humana. Nuestros clientes están más felices.",
+    rating: 5,
+    product: "chatbot-atencion"
+  },
+  {
+    id: 3,
+    name: "Andrés Felipe Ruiz",
+    role: "CTO, LegalTech Solutions",
+    avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=format&fit=crop&w=100&q=80",
+    text: "El pipeline RAG revolucionó nuestro análisis de contratos. De horas a minutos.",
+    rating: 5,
+    product: "pipeline-rag"
+  },
+];
+
 export default function StorePage() {
   const [selectedProduct, setSelectedProduct] = useState<StoreProduct | null>(null);
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("all");
   const { addItem } = useCart();
+
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === "all") return storeProducts;
+    return storeProducts.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
+
+  const relatedProducts = useMemo(() => {
+    if (!selectedProduct) return [];
+    return storeProducts.filter(p => p.id !== selectedProduct.id && p.category === selectedProduct.category).slice(0, 2);
+  }, [selectedProduct]);
 
   const handleViewDetails = (product: StoreProduct) => {
     setSelectedProduct(product);
@@ -60,10 +109,32 @@ export default function StorePage() {
         </div>
       </section>
 
+      {/* Category Filters */}
+      <section className="pb-8 px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                  activeCategory === cat.id
+                    ? "bg-cyan-500 text-black"
+                    : "bg-zinc-800/50 text-zinc-400 hover:bg-zinc-700 hover:text-white border border-zinc-700"
+                }`}
+              >
+                <span>{cat.icon}</span>
+                {cat.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Products Grid */}
       <section className="py-8 px-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {storeProducts.map((product) => (
+          {filteredProducts.map((product) => (
             <div
               key={product.id}
               className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1"
@@ -143,6 +214,41 @@ export default function StorePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 px-8 border-t border-zinc-800/50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Lo que dicen nuestros clientes
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="bg-zinc-900/30 border border-zinc-800/50 rounded-2xl p-6 hover:border-cyan-500/30 transition-colors"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-semibold">{testimonial.name}</h4>
+                    <p className="text-sm text-zinc-500">{testimonial.role}</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-cyan-400">★</span>
+                  ))}
+                </div>
+                <p className="text-zinc-400 text-sm leading-relaxed">"{testimonial.text}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Product Detail Modal */}
       {showDetailModal && selectedProduct && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -209,6 +315,38 @@ export default function StorePage() {
                   </li>
                 </ul>
               </div>
+
+              {/* Related Products */}
+              {relatedProducts.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="font-semibold mb-3 text-zinc-400">Productos relacionados</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {relatedProducts.map((related) => (
+                      <button
+                        key={related.id}
+                        onClick={() => {
+                          setSelectedProduct(related);
+                        }}
+                        className="flex items-center gap-3 p-3 bg-zinc-800/50 rounded-xl hover:bg-zinc-800 transition-colors text-left"
+                      >
+                        <div className="w-12 h-12 bg-zinc-700 rounded-lg overflow-hidden flex-shrink-0">
+                          <Image
+                            src={related.image}
+                            alt={related.title}
+                            width={48}
+                            height={48}
+                            className="object-cover w-full h-full"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium truncate">{related.title}</p>
+                          <p className="text-cyan-400 text-sm font-semibold">{formatPrice(related.price, related.currency)}</p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Price and CTA */}
               <div className="flex items-center justify-between mb-6 p-4 bg-zinc-800/30 rounded-xl border border-zinc-800">
