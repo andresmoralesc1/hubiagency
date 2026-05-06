@@ -171,7 +171,7 @@ export default function StorePage() {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1"
+              className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1 cursor-pointer"
             >
               {/* Image */}
               <div className="aspect-video bg-zinc-800 relative overflow-hidden">
@@ -236,7 +236,7 @@ export default function StorePage() {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
-                      Adquirir
+                      Añadir al carrito
                     </button>
                     <button
                       onClick={() => handleViewDetails(product)}
@@ -371,6 +371,7 @@ export default function StorePage() {
             <button
               onClick={() => setShowDetailModal(false)}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-all z-10"
+              aria-label="Cerrar"
             >
               ✕
             </button>
@@ -491,7 +492,7 @@ export default function StorePage() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Adquirir ahora
+                  Añadir al carrito
                 </button>
               </div>
             </div>
@@ -509,6 +510,7 @@ export default function StorePage() {
             <button
               onClick={() => setShowPaymentModal(false)}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-all"
+              aria-label="Cerrar"
             >
               ✕
             </button>
