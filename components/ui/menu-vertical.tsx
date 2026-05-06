@@ -56,7 +56,7 @@ export function MenuVertical({ isOpen, onClose, links }: MenuVerticalProps) {
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col gap-2 flex-1">
+              <nav id="mobile-menu" className="flex flex-col gap-2 flex-1">
                 {links.map((link) => (
                   <Link
                     key={link.href}

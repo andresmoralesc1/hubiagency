@@ -406,9 +406,11 @@ export function BriefForm() {
                       aria-required="true"
                       aria-invalid={formData.email && emailTouched ? !isValidEmail(formData.email) : false}
                     />
+                    <div aria-live="polite" aria-atomic="true">
                     {formData.email && emailTouched && !isValidEmail(formData.email) && (
                       <p className="text-red-400 text-xs mt-1">Email inválido</p>
                     )}
+                  </div>
                   </div>
                 </div>
                 <div>

@@ -60,7 +60,7 @@ export default function ContactPage() {
       <section className="pt-24 md:pt-32 pb-16 px-8">
         <div className="max-w-5xl mx-auto">
           <ContactCard
-            title="Get in touch"
+            title="Contáctanos"
             description="Si tienes preguntas sobre nuestros servicios o necesitas ayuda, completa el formulario. Respondemos en 24 horas."
             contactInfo={[
               {
@@ -126,6 +126,7 @@ export default function ContactPage() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
+                  aria-label="Selecciona un servicio"
                   className="flex h-10 w-full rounded-md border border-input bg-zinc-900 px-3 py-2 text-sm ring-offset-background text-white placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
                 >
                   <option value="">Selecciona un servicio</option>
@@ -166,7 +167,14 @@ export default function ContactPage() {
                 disabled={isLoading}
                 className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold"
               >
-                {isLoading ? "Enviando..." : "Enviar Mensaje"}
+                {isLoading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                    Enviando...
+                  </span>
+                ) : (
+                  "Enviar Mensaje"
+                )}
               </Button>
             </form>
           </ContactCard>

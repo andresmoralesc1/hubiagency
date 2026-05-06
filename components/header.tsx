@@ -27,7 +27,9 @@ export function Header() {
           <button
             onClick={() => setIsMenuOpen(true)}
             className="p-2 text-zinc-700 hover:text-cyan-600 md:hidden"
-            aria-label="Open menu"
+            aria-label="Abrir menú"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             <Menu className="size-5" />
           </button>
