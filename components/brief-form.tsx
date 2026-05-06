@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -63,6 +63,12 @@ export function BriefForm() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, [step]);
 
   const totalSteps = 6;
 
@@ -200,7 +206,7 @@ export function BriefForm() {
 
           {/* Header */}
           <div className="text-center mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold mb-2">
+            <h1 ref={headingRef} tabIndex={-1} className="text-2xl md:text-3xl font-bold mb-2">
               {step === 0 && "El Dolor Operativo"}
               {step === 1 && "Tu Stack Actual"}
               {step === 2 && "La Conexión Ideal"}
@@ -372,16 +378,17 @@ export function BriefForm() {
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData(f => ({ ...f, email: e.target.value }))}
+                      onBlur={() => setEmailTouched(true)}
                       className={`w-full bg-zinc-900 border rounded-lg px-4 py-3 text-white focus:outline-none ${
-                        formData.email && !isValidEmail(formData.email)
+                        formData.email && emailTouched && !isValidEmail(formData.email)
                           ? "border-red-500 focus:border-red-500"
                           : "border-zinc-700 focus:border-cyan-500"
                       }`}
                       placeholder="tu@email.com"
                       aria-required="true"
-                      aria-invalid={formData.email ? !isValidEmail(formData.email) : false}
+                      aria-invalid={formData.email && emailTouched ? !isValidEmail(formData.email) : false}
                     />
-                    {formData.email && !isValidEmail(formData.email) && (
+                    {formData.email && emailTouched && !isValidEmail(formData.email) && (
                       <p className="text-red-400 text-xs mt-1">Email inválido</p>
                     )}
                   </div>
@@ -429,6 +436,7 @@ export function BriefForm() {
             {step > 0 ? (
               <button
                 onClick={() => setStep(s => s - 1)}
+                aria-label="Paso anterior"
                 className="px-6 py-3 border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 font-semibold rounded-lg transition-colors"
               >
                 ← Atrás
@@ -457,7 +465,7 @@ export function BriefForm() {
               >
                 {submitting ? (
                   <>
-                    <span className="animate-spin">⏳</span>
+                    <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                     Enviando...
                   </>
                 ) : (
