@@ -42,10 +42,10 @@ const urgency = [
 ];
 
 const budgets = [
-  { min: 100, max: 500, label: "$100 - $500", desc: "Automatización simple" },
-  { min: 500, max: 2000, label: "$500 - $2,000", desc: "Automatización puntual" },
-  { min: 2000, max: 5000, label: "$2,000 - $5,000", desc: "Proyecto completo" },
-  { min: 5000, max: 15000, label: "$5,000 - $15,000", desc: "Solución integral" },
+  { min: 100, max: 499, label: "$100 - $499", desc: "Automatización simple" },
+  { min: 500, max: 1999, label: "$500 - $1,999", desc: "Automatización puntual" },
+  { min: 2000, max: 4999, label: "$2,000 - $4,999", desc: "Proyecto completo" },
+  { min: 5000, max: 14999, label: "$5,000 - $14,999", desc: "Solución integral" },
   { min: 15000, max: 50000, label: "$15,000+", desc: "Transformación digital" }
 ];
 
@@ -216,11 +216,11 @@ export function BriefForm() {
             </h1>
             <p className="text-zinc-400 text-sm">
               {step === 0 && "¿Qué proceso repetitivo te roba más de 5 horas a la semana?"}
-              {step === 1 && "¿Qué herramientas usas hoy? Selecciona todas las que apliquen."}
-              {step === 2 && "Si pudieras conectar dos herramientas para que 'hablen' entre sí, ¿cuáles?"}
+              {step === 1 && "¿Qué herramientas de negocio usas hoy? Selecciona todas."}
+              {step === 2 && "¿Qué herramientas deben 'hablar' entre sí automáticamente?"}
               {step === 3 && "¿Qué es más importante para tu negocio ahora mismo?"}
               {step === 4 && "¿Esto es urgente o estás explorando opciones?"}
-              {step === 5 && "Descarga tu diagnóstico gratuito"}
+              {step === 5 && "Recibe tu diagnóstico de automatización con IA"}
             </p>
           </div>
 
@@ -295,16 +295,34 @@ export function BriefForm() {
                 </div>
                 <div>
                   <label htmlFor="otherTool" className="block text-sm text-zinc-400 mb-2">
-                    ¿No encuentras tu herramienta?
+                    ¿Usas otra herramienta? (opcional)
                   </label>
-                  <input
-                    id="otherTool"
-                    type="text"
-                    value={formData.otherTool}
-                    onChange={(e) => setFormData(f => ({ ...f, otherTool: e.target.value }))}
-                    placeholder="Ej: Airtable, Pipedrive, Shopify..."
-                    className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
-                  />
+                  <div className="flex gap-2">
+                    <input
+                      id="otherTool"
+                      type="text"
+                      value={formData.otherTool}
+                      onChange={(e) => setFormData(f => ({ ...f, otherTool: e.target.value }))}
+                      placeholder="Ej: Airtable, Pipedrive, Shopify..."
+                      className="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (formData.otherTool.trim()) {
+                          setFormData(f => ({
+                            ...f,
+                            tools: f.tools.includes(f.otherTool.trim()) ? f.tools : [...f.tools, f.otherTool.trim()],
+                            otherTool: ""
+                          }));
+                        }
+                      }}
+                      className="px-4 py-3 border border-zinc-700 hover:border-cyan-500 hover:bg-zinc-800 rounded-lg text-zinc-400 hover:text-cyan-400 transition-colors"
+                      aria-label="Agregar herramienta"
+                    >
+                      + Agregar
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -360,7 +378,7 @@ export function BriefForm() {
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm text-zinc-400 mb-2">Nombre *</label>
+                    <label htmlFor="name" className="block text-sm text-zinc-400 mb-2">Nombre <span className="text-red-400">*</span></label>
                     <input
                       id="name"
                       type="text"
@@ -372,7 +390,7 @@ export function BriefForm() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm text-zinc-400 mb-2">Email *</label>
+                    <label htmlFor="email" className="block text-sm text-zinc-400 mb-2">Email <span className="text-red-400">*</span></label>
                     <input
                       id="email"
                       type="email"
@@ -405,7 +423,7 @@ export function BriefForm() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-zinc-400 mb-3">Presupuesto estimado *</label>
+                  <label className="block text-sm text-zinc-400 mb-3">Presupuesto estimado <span className="text-red-400">*</span></label>
                   <div className="grid grid-cols-2 gap-3" role="group" aria-label="Presupuesto">
                     {budgets.map((b) => (
                       <button
