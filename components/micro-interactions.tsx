@@ -10,8 +10,17 @@ export function MicroInteractions() {
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [isPageEntering, setIsPageEntering] = useState(false);
   const followerRef = useRef<{ x: number; y: number }>({ x: -100, y: -100 });
   const rafRef = useRef<number>(0);
+  const previousPathname = useRef(pathname);
+
+  // Page transition: trigger enter animation on mount
+  useEffect(() => {
+    setIsPageEntering(true);
+    const timer = setTimeout(() => setIsPageEntering(false), 400);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -67,13 +76,13 @@ export function MicroInteractions() {
       const isClickable = target.closest('a, button, [role="button"], input, textarea, select, [data-cursor]');
       setIsHoveringClickable(!!isClickable);
 
-      // Add magnetic effect class
+      // Add magnetic effect
       const magnetic = target.closest('[data-magnetic]');
       if (magnetic) {
         const rect = (magnetic as HTMLElement).getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        (magnetic as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        (magnetic as HTMLElement).style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
       }
     };
 
@@ -94,12 +103,24 @@ export function MicroInteractions() {
     };
   }, [prefersReducedMotion]);
 
+  // Hide cursor on mobile/touch
+  useEffect(() => {
+    const isTouchDevice = () => "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice()) return;
+  }, []);
+
   if (prefersReducedMotion) return null;
 
   return (
     <>
-      {/* Page transition */}
-      <div key={pathname} className="fixed inset-0 bg-cyan-500 z-[9998] animate-page-out pointer-events-none" />
+      {/* Page transition - OUT (old page slides out) */}
+      {previousPathname.current !== pathname && (
+        <div className="fixed inset-0 bg-cyan-500 z-[9998] animate-page-out pointer-events-none" />
+      )}
+      {/* Page transition - IN (new page slides in) */}
+      {isPageEntering && (
+        <div className="fixed inset-0 bg-cyan-500 z-[9998] animate-page-in pointer-events-none" />
+      )}
 
       {/* Cursor follower - outer ring */}
       <div
@@ -107,12 +128,12 @@ export function MicroInteractions() {
         style={{
           left: followerPos.x,
           top: followerPos.y,
-          transform: `translate(-50%, -50%) scale(${isHoveringClickable ? 1.5 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isHoveringClickable ? 1.8 : 1})`,
         }}
       >
-        <div className={`relative transition-all duration-200 ${isHoveringClickable ? "w-10 h-10" : "w-6 h-6"}`}>
+        <div className={`relative transition-all duration-200 ${isHoveringClickable ? "w-12 h-12" : "w-8 h-8"}`}>
           <div className={`absolute inset-0 border-2 rounded-full transition-all duration-200 ${isHoveringClickable ? "border-cyan-400/60" : "border-cyan-400/30"}`} />
-          <div className="absolute -inset-2 bg-cyan-400/5 rounded-full" />
+          <div className="absolute -inset-3 bg-cyan-400/5 rounded-full" />
         </div>
       </div>
 
@@ -125,10 +146,10 @@ export function MicroInteractions() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <div className={`bg-cyan-400 rounded-full transition-all duration-200 ${isHoveringClickable ? "w-1.5 h-1.5" : "w-2 h-2"}`} />
+        <div className={`bg-cyan-400 rounded-full transition-all duration-200 ${isHoveringClickable ? "w-2 h-2" : "w-2.5 h-2.5"}`} />
       </div>
 
-      {/* Magnetic cursor ring */}
+      {/* Magnetic cursor ring on clickable */}
       {isHoveringClickable && (
         <div
           className="fixed z-[9999] pointer-events-none"
@@ -138,7 +159,7 @@ export function MicroInteractions() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <div className="w-24 h-24 border border-cyan-400/10 rounded-full animate-ping" />
+          <div className="w-28 h-28 border border-cyan-400/20 rounded-full animate-ping" />
         </div>
       )}
     </>
