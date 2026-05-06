@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/header";
-import { medusa, type Cart } from "@/lib/medusa";
+import { useCart, formatPrice } from "@/lib/cart-context";
 
 export default function CheckoutPage() {
-  const [cart, setCart] = useState<Cart | null>(null);
+  const { items, total, clearCart } = useCart();
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -21,55 +21,17 @@ export default function CheckoutPage() {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState("");
 
-  useEffect(() => {
-    const cartId = localStorage.getItem("medusa_cart_id");
-    if (cartId) {
-      medusa.getCart(cartId).then((c) => {
-        if (c) setCart(c);
-      });
-    }
-  }, []);
-
-  const formatPrice = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "usd",
-    }).format(amount / 100);
-  };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handlePlaceOrder = async () => {
     setLoading(true);
-
-    try {
-      const cartId = localStorage.getItem("medusa_cart_id");
-      if (!cartId) {
-        alert("Carrito no encontrado");
-        return;
-      }
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_URL || "http://localhost:9000"}/store/carts/${cartId}/complete`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setOrderId(data.id || "ORD-" + Date.now());
-        setOrderPlaced(true);
-        localStorage.removeItem("medusa_cart_id");
-      } else {
-        alert("Error al realizar el pedido");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Error al realizar el pedido");
-    } finally {
-      setLoading(false);
-    }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setOrderId("ORD-" + Date.now());
+    setOrderPlaced(true);
+    clearCart();
+    setLoading(false);
   };
 
   if (orderPlaced) {
@@ -112,7 +74,6 @@ export default function CheckoutPage() {
           <h1 className="text-3xl md:text-4xl font-bold mb-8">Finalizar Compra</h1>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Form */}
             <div>
               <div className="mb-8">
                 <h2 className="text-xl font-semibold mb-4">Información de Contacto</h2>
@@ -230,34 +191,33 @@ export default function CheckoutPage() {
 
               <button
                 onClick={handlePlaceOrder}
-                disabled={loading || !formData.email || !formData.first_name || !formData.last_name}
+                disabled={loading || !formData.email || !formData.first_name || !formData.last_name || items.length === 0}
                 className="w-full py-4 px-8 rounded-lg font-semibold bg-cyan-500 hover:bg-cyan-400 text-black transition-colors disabled:opacity-50"
               >
                 {loading ? "Procesando..." : "Realizar Pedido"}
               </button>
             </div>
 
-            {/* Order Summary */}
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-950/50 h-fit">
               <h2 className="text-xl font-semibold mb-6">Resumen del Pedido</h2>
 
-              {cart && cart.items.length > 0 ? (
+              {items.length > 0 ? (
                 <div className="space-y-4 mb-6">
-                  {cart.items.map((item, index) => (
-                    <div key={index} className="flex justify-between items-center border-b border-zinc-800 pb-3">
+                  {items.map((item) => (
+                    <div key={item.product.id} className="flex justify-between items-center border-b border-zinc-800 pb-3">
                       <div>
-                        <p className="font-medium">{item.title || "Servicio"}</p>
+                        <p className="font-medium">{item.product.title}</p>
                         <p className="text-sm text-zinc-400">Cantidad: {item.quantity}</p>
                       </div>
                       <span className="text-cyan-400">
-                        {formatPrice(item.unit_price?.amount || 0)}
+                        {formatPrice(item.product.price * item.quantity)}
                       </span>
                     </div>
                   ))}
                   <div className="flex justify-between items-center pt-3">
                     <span className="text-lg font-semibold">Total</span>
                     <span className="text-xl font-bold text-cyan-400">
-                      {formatPrice(cart.total || 0)}
+                      {formatPrice(total)}
                     </span>
                   </div>
                 </div>
