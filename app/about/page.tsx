@@ -20,7 +20,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 px-8">
+      <section className="py-16 px-8 border-t border-zinc-800/50">
         <div className="max-w-4xl mx-auto">
           <div className="p-8 border border-zinc-800 rounded-lg bg-zinc-950/50 mb-12">
             <h2 className="text-3xl font-semibold mb-4 text-cyan-400">Nuestra Misión</h2>
