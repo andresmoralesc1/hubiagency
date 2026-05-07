@@ -168,7 +168,20 @@ export default function StorePage() {
       {/* Products Grid */}
       <section className="py-8 px-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
+          {filteredProducts.length === 0 ? (
+            <div className="col-span-full text-center py-16">
+              <div className="text-5xl mb-4">🔍</div>
+              <h3 className="text-xl font-semibold mb-2">No hay productos en esta categoría</h3>
+              <p className="text-zinc-400 mb-6">Explora otras categorías o vuelve aTodos.</p>
+              <button
+                onClick={() => setActiveCategory("all")}
+                className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition-all"
+              >
+                Ver todos los productos
+              </button>
+            </div>
+          ) : (
+            filteredProducts.map((product) => (
             <div
               key={product.id}
               className="group relative bg-zinc-900/50 border border-zinc-800/50 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1 cursor-pointer"
@@ -255,7 +268,8 @@ export default function StorePage() {
               {/* Hover glow effect */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
-          ))}
+          ))
+          )}
         </div>
       </section>
 

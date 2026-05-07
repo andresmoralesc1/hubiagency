@@ -81,6 +81,17 @@ export default function ContactPage() {
             ]}
           >
             <form onSubmit={handleSubmit} className="w-full space-y-4">
+              {/* Honeypot anti-spam */}
+              <input
+                type="text"
+                name="website"
+                value={formData.name ? "" : ""}
+                onChange={() => {}}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <div className="flex flex-col gap-2">
                 <Label htmlFor="name" className="text-zinc-300">Nombre</Label>
                 <Input

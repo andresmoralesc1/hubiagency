@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   creator: "hubIAgency",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "es_CO",
     url: "https://hubiagency.com",
     siteName: "hubIAgency",
     title: "hubIAgency - Intelligent Automation for Modern Business",
