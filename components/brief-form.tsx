@@ -148,7 +148,7 @@ export function BriefForm() {
             <div className="text-6xl mb-6">🚀</div>
             <h1 className="text-4xl font-bold mb-4">¡Recibido!</h1>
             <p className="text-xl text-zinc-400 mb-6">
-              En 5 minutos recibirás un diagnóstico inicial de arquitectura en tu correo.
+              En breve nos comunicaremos contigo para discutir tu proyecto.
             </p>
             <p className="text-zinc-500 mb-8">
               Mientras tanto, explora nuestros casos de éxito en el{" "}
