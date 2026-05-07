@@ -149,20 +149,7 @@ export function MicroInteractions() {
         <div className={`bg-cyan-400 rounded-full transition-all duration-200 ${isHoveringClickable ? "w-2 h-2" : "w-2.5 h-2.5"}`} />
       </div>
 
-      {/* Magnetic cursor ring on clickable */}
-      {isHoveringClickable && (
-        <div
-          className="fixed z-[9999] pointer-events-none"
-          style={{
-            left: cursorPos.x,
-            top: cursorPos.y,
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <div className="w-28 h-28 border border-cyan-400/20 rounded-full animate-ping" />
-        </div>
-      )}
-    </>
+          </>
   );
 }
 
