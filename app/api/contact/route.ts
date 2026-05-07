@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Thank you! We'll be in touch within 24 hours.",
+      message: "¡Mensaje enviado! Nos pondremos en contacto dentro de 24 horas.",
     });
   } catch (error) {
     console.error("[Contact API] Error:", error);
