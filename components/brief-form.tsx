@@ -35,6 +35,12 @@ const goals = [
   { id: "both", label: "Los dos", icon: "🎯", desc: "Optimizar operaciones Y aumentar ingresos" }
 ];
 
+const connections = [
+  { id: "clearly", label: "Ya tengo claro qué conectar", desc: "Sé exactamente qué herramientas deben integrarse" },
+  { id: "vague", label: "Tengo una idea general", desc: "Quiero que X hable con Y pero no sé cómo" },
+  { id: "exploring", label: "Estoy explorando", desc: "Quiero entender qué conexiones son posibles" }
+];
+
 const urgency = [
   { id: "yesterday", label: "Para ayer", desc: "Tengo un problema urgente que resolver" },
   { id: "month", label: "Este mes", desc: "Quiero implementarlo dentro de 30 días" },
@@ -59,7 +65,7 @@ export function BriefForm() {
     name: "", email: "", company: "",
     pain: [] as string[],
     tools: [] as string[],
-    connection: "", otherTool: "", goal: "", urgency: "", budget: ""
+    connection: "", otherTool: "", goal: "", goalSecondary: "", urgency: "", budget: ""
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -76,7 +82,7 @@ export function BriefForm() {
     switch (step) {
       case 0: return formData.pain.length > 0;
       case 1: return formData.tools.length > 0;
-      case 2: return formData.connection.trim().length > 0;
+      case 2: return !!formData.connection;
       case 3: return !!formData.goal;
       case 4: return !!formData.urgency;
       case 5: return formData.name.trim().length > 0 && isValidEmail(formData.email) && !!formData.budget;
@@ -85,7 +91,7 @@ export function BriefForm() {
   };
 
   const getFieldError = () => {
-    if (step === 2 && !formData.connection.trim()) return "Describe al menos una conexión";
+    if (step === 2 && !formData.connection) return "Selecciona una opción";
     if (step === 5) {
       if (!formData.name.trim()) return "El nombre es requerido";
       if (!formData.email.trim()) return "El email es requerido";
@@ -209,18 +215,18 @@ export function BriefForm() {
             <h1 ref={headingRef} tabIndex={-1} className="text-2xl md:text-3xl font-bold mb-2">
               {step === 0 && "El Dolor Operativo"}
               {step === 1 && "Tu Stack Actual"}
-              {step === 2 && "La Conexión Ideal"}
-              {step === 3 && "Tu Objetivo con IA"}
+              {step === 2 && "Tu Claridad"}
+              {step === 3 && "Tu Objetivo Principal"}
               {step === 4 && "¿Cuándo lo necesitas?"}
               {step === 5 && "Tus Datos de Contacto"}
             </h1>
             <p className="text-zinc-400 text-sm">
               {step === 0 && "¿Qué proceso repetitivo te roba más de 5 horas a la semana?"}
               {step === 1 && "¿Qué herramientas de negocio usas hoy? Selecciona todas."}
-              {step === 2 && "¿Qué herramientas deben 'hablar' entre sí automáticamente?"}
+              {step === 2 && "¿Qué tan claro tienes qué conectar?"}
               {step === 3 && "¿Qué es más importante para tu negocio ahora mismo?"}
               {step === 4 && "¿Esto es urgente o estás explorando opciones?"}
-              {step === 5 && "Recibe tu diagnóstico de automatización con IA"}
+              {step === 5 && "Último paso para contactarte"}
             </p>
           </div>
 
@@ -251,7 +257,7 @@ export function BriefForm() {
             )}
 
             {step === 1 && (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3" role="group" aria-label="Herramientas">
+              <div className="grid grid-cols-2 gap-3" role="group" aria-label="Herramientas">
                 {tools.map((tool) => (
                   <button
                     key={tool}
@@ -275,54 +281,37 @@ export function BriefForm() {
             )}
 
             {step === 2 && (
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="connection" className="block text-sm text-zinc-400 mb-2">
-                    ¿Qué herramientas quieres conectar?
+              <div className="space-y-4" role="group" aria-label="Claridad de conexión">
+                {connections.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setFormData(f => ({ ...f, connection: c.id }))}
+                    aria-pressed={formData.connection === c.id}
+                    className={`w-full text-left p-5 rounded-lg border transition-all ${
+                      formData.connection === c.id
+                        ? "border-cyan-500 bg-cyan-500/10"
+                        : "border-zinc-800 hover:border-zinc-600"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="font-semibold">{c.label}</span>
+                      {formData.connection === c.id && <CheckCircle className="w-4 h-4 ml-auto text-cyan-400" />}
+                    </div>
+                    <p className="text-zinc-400 text-sm">{c.desc}</p>
+                  </button>
+                ))}
+                <div className="pt-4 border-t border-zinc-800">
+                  <label htmlFor="connectionDetail" className="block text-sm text-zinc-400 mb-2">
+                    ¿Qué herramientas necesitas conectar? (opcional)
                   </label>
                   <input
-                    id="connection"
+                    id="connectionDetail"
                     type="text"
-                    value={formData.connection}
-                    onChange={(e) => setFormData(f => ({ ...f, connection: e.target.value }))}
+                    value={formData.otherTool}
+                    onChange={(e) => setFormData(f => ({ ...f, otherTool: e.target.value }))}
                     placeholder="Ej: Google Sheets → Notion, WhatsApp → CRM"
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
-                    aria-describedby="connection-hint"
                   />
-                  <p id="connection-hint" className="text-zinc-600 text-xs mt-1">
-                    Describe el flujo ideal: qué sale de una herramienta y entra en otra
-                  </p>
-                </div>
-                <div>
-                  <label htmlFor="otherTool" className="block text-sm text-zinc-400 mb-2">
-                    ¿Usas otra herramienta? (opcional)
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      id="otherTool"
-                      type="text"
-                      value={formData.otherTool}
-                      onChange={(e) => setFormData(f => ({ ...f, otherTool: e.target.value }))}
-                      placeholder="Ej: Airtable, Pipedrive, Shopify..."
-                      className="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-cyan-500 focus:outline-none"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (formData.otherTool.trim()) {
-                          setFormData(f => ({
-                            ...f,
-                            tools: f.tools.includes(f.otherTool.trim()) ? f.tools : [...f.tools, f.otherTool.trim()],
-                            otherTool: ""
-                          }));
-                        }
-                      }}
-                      className="px-4 py-3 border border-zinc-700 hover:border-cyan-500 hover:bg-zinc-800 rounded-lg text-zinc-400 hover:text-cyan-400 transition-colors"
-                      aria-label="Agregar herramienta"
-                    >
-                      + Agregar
-                    </button>
-                  </div>
                 </div>
               </div>
             )}
@@ -425,7 +414,7 @@ export function BriefForm() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-zinc-400 mb-3">Presupuesto estimado <span className="text-red-400">*</span></label>
+                  <label className="block text-sm text-zinc-400 mb-3">Presupuesto estimado (USD) <span className="text-red-400">*</span></label>
                   <div className="grid grid-cols-2 gap-3" role="group" aria-label="Presupuesto">
                     {budgets.map((b) => (
                       <button
@@ -489,7 +478,7 @@ export function BriefForm() {
                     Enviando...
                   </>
                 ) : (
-                  <>Recibir mi diagnóstico →</>
+                  <>Enviar consulta →</>
                 )}
               </button>
             )}
