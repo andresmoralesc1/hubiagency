@@ -181,30 +181,30 @@ export function BriefForm() {
           <div className="mb-8">
             <div className="flex items-center justify-between text-sm text-zinc-500 mb-2">
               <span>Paso {step + 1} de {totalSteps}</span>
-              <span>{Math.round(((step + 1) / totalSteps) * 100)}%</span>
+              <span className="font-mono">{Math.round(((step + 1) / totalSteps) * 100)}%</span>
             </div>
-            <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
+            <div className="h-2 bg-zinc-900 rounded-full overflow-hidden relative">
               <div
-                className="h-full bg-cyan-500 transition-all duration-300"
+                className="h-full bg-cyan-500 absolute left-0 top-0 transition-all duration-300"
                 style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
               />
             </div>
             {/* Step indicators */}
-            <div className="flex justify-between mt-2">
+            <div className="flex justify-center gap-2 mt-3">
               {Array.from({ length: totalSteps }, (_, i) => (
                 <button
                   key={i}
                   onClick={() => i < step && setStep(i)}
-                  className={`w-6 h-6 rounded-full text-xs font-bold transition-all ${
+                  className={`w-7 h-7 rounded-full text-xs font-bold transition-all flex items-center justify-center ${
                     i < step
                       ? "bg-cyan-500 text-black cursor-pointer hover:bg-cyan-400"
                       : i === step
-                      ? "bg-cyan-500 text-black"
+                      ? "bg-cyan-500 text-black ring-2 ring-cyan-400 ring-offset-2 ring-offset-black"
                       : "bg-zinc-800 text-zinc-500"
                   }`}
                   aria-label={`Ir a paso ${i + 1}`}
                 >
-                  {i < step ? <CheckCircle className="w-4 h-4 mx-auto" /> : i + 1}
+                  {i < step ? <CheckCircle className="w-4 h-4" /> : i + 1}
                 </button>
               ))}
             </div>
