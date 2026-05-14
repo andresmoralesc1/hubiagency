@@ -1,5 +1,6 @@
 "use client";
 
+import type { Metadata } from "next";
 import { useState } from "react";
 import { Header } from "@/components/header";
 import { ContactCard } from "@/components/ui/contact-card";

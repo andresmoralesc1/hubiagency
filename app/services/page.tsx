@@ -1,9 +1,19 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 import { CyanFlowShader } from "@/components/ui/cyan-flow-shader";
 
+export const metadata: Metadata = {
+  title: "Servicios de IA - hubIAgency",
+  description: "Automatización de flujos de trabajo, chatbots con IA, desarrollo de IA personalizado y consultoría estratégica para tu negocio.",
+  keywords: ["servicios IA", "automatización", "chatbots", "consultoría IA", "n8n", "LangChain"],
+  openGraph: {
+    title: "Servicios de IA - hubIAgency",
+    description: "Automatización de flujos de trabajo, chatbots con IA, desarrollo personalizado y consultoría estratégica.",
+  },
+};
 
 const services = [
   {

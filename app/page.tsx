@@ -22,7 +22,7 @@ export default function Home() {
         color="hsl(180, 100%, 60%)"
         animationType="pulse"
         pulseEffect={true}
-        mouseGlow={true}
+        mouseGlow={false}
         opacityMin={0.05}
         opacityMax={0.7}
         background="hsl(220, 20%, 5%)"

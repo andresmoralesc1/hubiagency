@@ -1,6 +1,9 @@
+"use client";
+
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Header } from "@/components/header";
 import { CyanFlowShader } from "@/components/ui/cyan-flow-shader";
+import { Metadata } from "next";
 
 export default function ChatbotsPage() {
   return (

@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { ShinyButton } from "@/components/ui/shiny-button";
+
+export const metadata: Metadata = {
+  title: "Sobre Nosotros - hubIAgency",
+  description: "Conoce al equipo de hubIAgency. Automatización inteligente y soluciones AI a medida, lideradas por Andrés Morales y Alejandro Montes.",
+  keywords: ["equipo hubiagency", "autores", "IA Colombia", "automatización Bogotá"],
+  openGraph: {
+    title: "Sobre Nosotros - hubIAgency",
+    description: "Conoce al equipo de hubIAgency. Automatización inteligente y soluciones AI a medida.",
+  },
+};
 
 export default function AboutPage() {
   return (

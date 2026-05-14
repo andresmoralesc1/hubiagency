@@ -1,44 +1,90 @@
 import { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://hubiagency.com";
+const BASE_URL = "https://hubiagency.com";
 
-  return [
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const staticPages = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
+      url: BASE_URL,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      url: `${BASE_URL}/about`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/store/products`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
+      url: `${BASE_URL}/services/automation`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      url: `${BASE_URL}/services/chatbots`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services/custom-ai`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services/consulting`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/portfolio`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      url: `${BASE_URL}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/store`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/store/products`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ];
+
+  return staticPages;
 }

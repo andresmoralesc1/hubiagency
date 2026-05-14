@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type AnimationType = "pulse" | "wave" | "random";
 
@@ -34,6 +34,7 @@ export default function DataGridHero({
   children,
 }: DataGridHeroProps) {
   const gridRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const container = gridRef.current;
@@ -77,6 +78,8 @@ export default function DataGridHero({
 
       container.appendChild(cell);
     }
+
+    setIsLoaded(true);
   }, [
     rows,
     cols,
@@ -107,7 +110,11 @@ export default function DataGridHero({
 
   return (
     <div className="data-grid-hero" style={{ background }}>
-      <div ref={gridRef} className="grid-container" aria-hidden="true" />
+      <div
+        ref={gridRef}
+        className={`grid-container ${isLoaded ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+        aria-hidden="true"
+      />
       <div className="hero-content" role="region" aria-label="Hero Content">
         {children}
       </div>

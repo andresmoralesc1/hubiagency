@@ -18,32 +18,61 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const BASE_URL = "https://hubiagency.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hubiagency.com"),
+  metadataBase: new URL(BASE_URL),
   title: {
-    default: "hubIAgency - Intelligent Automation for Modern Business",
+    default: "hubIAgency - Automatización Inteligente para Negocios Modernos",
     template: "%s | hubIAgency",
   },
-  description: "B2B consulting agency specializing in workflow automation, AI chatbots, and custom AI development. Automate. Innovate. Elevate.",
-  keywords: ["AI automation", "workflow automation", "AI chatbot", "business intelligence", "n8n", "LangChain", "custom AI development"],
-  authors: [{ name: "hubIAgency" }],
+  description: "Agencia de consultoría B2B especializada en automatización de flujos de trabajo, chatbots con IA y desarrollo de IA personalizado. Automatiza. Innova. Eleva.",
+  keywords: ["automatización IA", "automatización de flujos", "chatbot IA", "inteligencia artificial", "n8n", "LangChain", "desarrollo IA", "consultoría IA Colombia"],
+  authors: [{ name: "hubIAgency", url: BASE_URL }],
   creator: "hubIAgency",
+  publisher: "hubIAgency",
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://hubiagency.com",
+    url: BASE_URL,
     siteName: "hubIAgency",
-    title: "hubIAgency - Intelligent Automation for Modern Business",
-    description: "B2B consulting agency specializing in workflow automation, AI chatbots, and custom AI development.",
+    title: "hubIAgency - Automatización Inteligente para Negocios Modernos",
+    description: "Agencia de consultoría B2B especializada en automatización de flujos de trabajo, chatbots con IA y desarrollo de IA personalizado.",
+    images: [{
+      url: `${BASE_URL}/og-image.png`,
+      width: 1200,
+      height: 630,
+      alt: "hubIAgency - Automatización Inteligente"
+    }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "hubIAgency - Intelligent Automation",
-    description: "Transform your business with AI-powered automation solutions.",
+    title: "hubIAgency - Automatización Inteligente",
+    description: "Transforma tu negocio con soluciones de automatización y IA.",
+    images: [`${BASE_URL}/og-image.png`],
+    creator: "@andresmoralesc1",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      "es-CO": `${BASE_URL}`,
+      "en-US": `${BASE_URL}/en`,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
